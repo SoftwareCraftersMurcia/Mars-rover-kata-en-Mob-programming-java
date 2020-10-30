@@ -13,6 +13,10 @@ public class MarsRover {
             orientation = "E";
         }
 
+        if (command == "L") {
+            orientation = "W";
+        }
+
         return "0:" + String.valueOf(number) + ":" + orientation;
     }
 
