@@ -26,11 +26,11 @@ class MarsRoverTest {
 
 	@Test
 	public void from_north_going_right_should_face_east() {
-		MarsRover rover = new MarsRover("N");
+		MarsRover rover = new MarsRover("W");
 
 		String result = rover.execute("R");
 
-		assertEquals("0:0:E", result);
+		assertEquals("0:0:N", result);
 	}
 /*
 	@Test
