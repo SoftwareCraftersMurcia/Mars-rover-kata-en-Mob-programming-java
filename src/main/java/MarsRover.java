@@ -13,7 +13,7 @@ public class MarsRover {
         int number = 0;
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
-            if ( command == 'M') {
+            if (command == 'M') {
                 number++;
             }
         }
@@ -25,9 +25,14 @@ public class MarsRover {
         }
 
         if ("L".equals(commands)) {
-            orientation = "W";
-        }
+            if ("E".equals(orientation)) {
+                orientation = "N";
+            } else {
 
+                orientation = "W";
+            }
+
+        }
 
 
         return "0:" + String.valueOf(number) + ":" + orientation;
