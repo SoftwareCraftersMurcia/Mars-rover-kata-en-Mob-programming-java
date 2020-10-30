@@ -1,7 +1,7 @@
 public class MarsRover {
     private String orientation = "N";
 
-    public String execute(java.lang.String command) {
+    public String execute(String command) {
         int number = 0;
         for (int i = 0; i < command.length(); i++) {
             if (command.charAt(i) == 'M') {
@@ -9,11 +9,11 @@ public class MarsRover {
             }
         }
 
-        if (command == "R") {
+        if ("R".equals(command)) {
             orientation = "E";
         }
 
-        if (command == "L") {
+        if ("L".equals(command)) {
             orientation = "W";
         }
 
