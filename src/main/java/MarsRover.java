@@ -1,7 +1,7 @@
 public class MarsRover {
 
-    public boolean execute(java.lang.String m) {
-        return true;
+    public String execute(java.lang.String m) {
+        return "0:1:N";
     }
 
 }
