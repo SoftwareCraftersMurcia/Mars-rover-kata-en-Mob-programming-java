@@ -24,4 +24,13 @@ class MarsRoverTest {
 		assertEquals("0:2:N", result);
 	}
 
+	@Test
+	public void going_right_should_face_east() {
+		MarsRover rover = new MarsRover();
+
+		String result = rover.execute("R");
+
+		assertEquals("0:0:E", result);
+	}
+
 }
