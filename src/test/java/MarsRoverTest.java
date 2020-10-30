@@ -41,7 +41,7 @@ class MarsRoverTest {
 
 		assertEquals("0:0:W", result);
 	}
-
+/*
 	@Test
 	public void going_two_times_left_should_face_south() {
 		MarsRover rover = new MarsRover();
@@ -50,5 +50,6 @@ class MarsRoverTest {
 
 		assertEquals("0:0:S", result);
 	}
-
+	*/
+ */
 }
