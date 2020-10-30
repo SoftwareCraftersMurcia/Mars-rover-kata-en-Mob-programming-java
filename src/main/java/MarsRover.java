@@ -19,6 +19,11 @@ public class MarsRover {
         }
 
         if ("R".equals(commands)) {
+            switch (orientation){
+                case "W": orientation = "N"; break;
+
+
+            }
             orientation = "E";
         }
 
