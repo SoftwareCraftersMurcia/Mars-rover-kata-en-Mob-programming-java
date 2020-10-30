@@ -51,5 +51,4 @@ class MarsRoverTest {
 		assertEquals("0:0:S", result);
 	}
 	*/
- */
 }

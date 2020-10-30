@@ -8,14 +8,14 @@ public class MarsRover {
             if ( command == 'M') {
                 number++;
             }
+        }
 
-            if ("R".equals(command)) {
-                orientation = "E";
-            }
+        if ("R".equals(commands)) {
+            orientation = "E";
+        }
 
-            if ("L".equals(command)) {
-                orientation = "W";
-            }
+        if ("L".equals(commands)) {
+            orientation = "W";
         }
 
 
