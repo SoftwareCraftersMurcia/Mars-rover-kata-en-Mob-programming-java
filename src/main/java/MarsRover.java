@@ -1,6 +1,10 @@
 public class MarsRover {
     private String orientation = "N";
 
+    public MarsRover() {
+        orientation = "N";
+    }
+
     public MarsRover(String initialOrientation) {
         this.orientation = initialOrientation;
     }
