@@ -16,23 +16,23 @@ public class MarsRover {
             if (command == 'M') {
                 number++;
             }
-        }
+            if ('R' == command) {
+                if ("W".equals(orientation)) {
+                    orientation = "N";
+                }
+            }
 
-        if ("R".equals(commands)) {
-            if ("W".equals(orientation)) {
-                orientation = "N";
+            if ('L' == command) {
+                if ("E".equals(orientation)) {
+                    orientation = "N";
+                } else {
+
+                    orientation = "W";
+                }
+
             }
         }
 
-        if ("L".equals(commands)) {
-            if ("E".equals(orientation)) {
-                orientation = "N";
-            } else {
-
-                orientation = "W";
-            }
-
-        }
 
 
         return "0:" + String.valueOf(number) + ":" + orientation;
