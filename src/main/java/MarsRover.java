@@ -6,6 +6,8 @@ public class MarsRover {
            number++;
         }
 
+        if (command == "R")
+
         return "0:"+ String.valueOf(number)+ ":N";
     }
 
