@@ -14,24 +14,11 @@ public class Position {
         this.orientation = orientation;
     }
 
-    @Override
-    public String toString() {
-        return positionX + ":" + positionY + ":" + orientation.toString();
-    }
-
-    void rotate(int direction) {
+    public void rotate(int direction) {
         this.orientation = rotations.get((rotations.indexOf(orientation) + direction + 4) % 4);
     }
 
-    void moveY(int amount) {
-        this.positionY = (positionY + amount + 10) % 10;
-    }
-
-    void moveX(int amount) {
-        this.positionX = (positionX + amount + 10) % 10;
-    }
-
-    void moveForward() {
+    public void moveForward() {
         switch (orientation) {
             case North:
                 moveY(+1);
@@ -46,5 +33,18 @@ public class Position {
                 moveX(-1);
                 break;
         }
+    }
+
+    @Override
+    public String toString() {
+        return positionX + ":" + positionY + ":" + orientation.toString();
+    }
+
+    private void moveY(int amount) {
+        this.positionY = (positionY + amount + 10) % 10;
+    }
+
+    private void moveX(int amount) {
+        this.positionX = (positionX + amount + 10) % 10;
     }
 }
