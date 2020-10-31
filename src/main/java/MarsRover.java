@@ -19,13 +19,15 @@ public class MarsRover {
             if ('R' == command) {
                 if ("W".equals(orientation)) {
                     orientation = "N";
+                } else if ("N".equals(orientation)) {
+                    orientation = "E";
                 }
             }
 
             if ('L' == command) {
                 if ("E".equals(orientation)) {
                     orientation = "N";
-                }else if ("W".equals(orientation)) {
+                } else if ("W".equals(orientation)) {
                     orientation = "S";
                 } else {
 
@@ -34,7 +36,6 @@ public class MarsRover {
 
             }
         }
-
 
 
         return "0:" + String.valueOf(number) + ":" + orientation;
