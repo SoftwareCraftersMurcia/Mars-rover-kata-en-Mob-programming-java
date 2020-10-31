@@ -28,7 +28,7 @@ class MarsRoverTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"RM,1:0:E"})
+    @CsvSource({"RM,1:0:E", "RMM,2:0:E" })
     public void moves_east_any_number_of_times(String command, String expectedPosition) {
         String result = rover.execute(command);
 
