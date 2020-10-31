@@ -23,8 +23,7 @@ public class MarsRover {
         } else if ('L' == charCommand) {
             return new RotateLeft(position);
         }
-
-        return null;
+        throw new IllegalArgumentException("The command " + charCommand + " is not recognized");
     }
 
 }
