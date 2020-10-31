@@ -8,17 +8,16 @@ public class MarsRover {
 
     public String execute(String commands) {
         for (int i = 0; i < commands.length(); i++) {
-            char command = commands.charAt(i);
-            if (command == 'M') {
-                new MoveForward(position).execute();
+            char charCommand = commands.charAt(i);
+            MarsCommand command = null;
+            if (charCommand == 'M') {
+                command = new MoveForward(position);
+            } else if ('R' == charCommand) {
+                command = new RotateRight(position);
+            } else if ('L' == charCommand) {
+                command = new RotateLeft(position);
             }
-            if ('R' == command) {
-                new RotateRight(position).execute();
-            }
-
-            if ('L' == command) {
-                new RotateLeft(position).execute();
-            }
+            command.execute();
         }
 
         return position.toString();
