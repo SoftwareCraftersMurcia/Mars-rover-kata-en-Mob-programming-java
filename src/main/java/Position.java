@@ -17,7 +17,7 @@ public class Position {
     public Position moveForward() {
         switch (orientation) {
             case North:
-                return new Position(positionX, moveY(+1), orientation);
+                return this.move(new Movement(0, 1));
             case South:
                 return new Position(positionX, moveY(-1), orientation);
             case East:
@@ -26,6 +26,18 @@ public class Position {
                 return new Position(moveX(-1), positionY, orientation);
         }
         throw new IllegalArgumentException("The orientation " + orientation + " is not valid");
+    }
+
+    private Position move(Movement movement) {
+        return new Position(
+                roundWorld(positionX + movement.getVerticalMovement()),
+                roundWorld(positionY + movement.getHorizontalMovement()),
+                orientation
+        );
+    }
+
+    private int roundWorld(int x) {
+        return (x + 10) % 10;
     }
 
     @Override
