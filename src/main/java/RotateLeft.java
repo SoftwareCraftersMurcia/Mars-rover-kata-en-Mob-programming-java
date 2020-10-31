@@ -1,8 +1,4 @@
-public class RotateLeft implements MarsCommand, RotationCommand {
-    public Position execute(Position position) {
-        return position.rotate(this);
-    }
-
+public class RotateLeft extends RotationCommand implements MarsCommand {
     @Override
     public Orientation rotate(Orientation orientation) {
         return orientation.rotateLeft();
