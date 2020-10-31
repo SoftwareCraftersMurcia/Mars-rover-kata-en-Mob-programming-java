@@ -1,5 +1,5 @@
 public class Position {
-    private Orientation orientation;
+    private final Orientation orientation;
 
     private int positionX;
     private int positionY;
@@ -11,13 +11,11 @@ public class Position {
     }
 
     public Position rotateLeft() {
-        this.orientation = orientation.rotateLeft();
-        return new Position(positionX, positionY, orientation);
+        return new Position(positionX, positionY, orientation.rotateLeft());
     }
 
     public Position rotateRight() {
-        this.orientation = orientation.rotateRight();
-        return new Position(positionX, positionY, orientation);
+        return new Position(positionX, positionY, orientation.rotateRight());
     }
 
 
