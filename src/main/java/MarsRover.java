@@ -11,44 +11,18 @@ public class MarsRover {
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                moveForward();
+                position.moveForward();
             }
             if ('R' == command) {
-                rotateRight();
+                position.rotate(RIGHT_ROTATION);
             }
 
             if ('L' == command) {
-                rotateLeft();
+                position.rotate(LEFT_ROTATION);
             }
         }
 
-
         return position.toString();
-    }
-
-    private void moveForward() {
-        switch (position.getOrientation()) {
-            case 'N':
-                position.moveY(+1);
-                break;
-            case 'S':
-                position.moveY(-1);
-                break;
-            case 'E':
-                position.moveX(+1);
-                break;
-            case 'W':
-                position.moveX(-1);
-                break;
-        }
-    }
-
-    private void rotateLeft() {
-        position.rotate(LEFT_ROTATION);
-    }
-
-    private void rotateRight() {
-        position.rotate(RIGHT_ROTATION);
     }
 
 }

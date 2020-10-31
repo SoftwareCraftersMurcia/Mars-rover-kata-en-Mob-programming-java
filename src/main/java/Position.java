@@ -16,15 +16,11 @@ public class Position {
 
     @Override
     public String toString() {
-        return positionX + ":" + positionY + ":" + getOrientation();
-    }
-
-    public char getOrientation() {
-        return orientation;
+        return positionX + ":" + positionY + ":" + orientation;
     }
 
     void rotate(int direction) {
-        this.orientation = rotations.get((rotations.indexOf(getOrientation()) + direction + 4) % 4);
+        this.orientation = rotations.get((rotations.indexOf(orientation) + direction + 4) % 4);
     }
 
     void moveY(int amount) {
@@ -33,5 +29,22 @@ public class Position {
 
     void moveX(int amount) {
         this.positionX = (positionX + amount + 10) % 10;
+    }
+
+    void moveForward() {
+        switch (orientation) {
+            case 'N':
+                moveY(+1);
+                break;
+            case 'S':
+                moveY(-1);
+                break;
+            case 'E':
+                moveX(+1);
+                break;
+            case 'W':
+                moveX(-1);
+                break;
+        }
     }
 }
