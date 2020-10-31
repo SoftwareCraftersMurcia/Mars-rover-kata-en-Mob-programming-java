@@ -16,15 +16,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return getPositionX() + ":" + positionY + ":" + getOrientation();
-    }
-
-    public int getPositionX() {
-        return positionX;
-    }
-
-    public void setPositionX(int positionX) {
-        this.positionX = positionX;
+        return positionX + ":" + positionY + ":" + getOrientation();
     }
 
     public char getOrientation() {
@@ -40,6 +32,6 @@ public class Position {
     }
 
     void moveX(int amount) {
-        setPositionX((getPositionX() + amount + 10) % 10);
+        this.positionX = (positionX + amount + 10) % 10;
     }
 }
