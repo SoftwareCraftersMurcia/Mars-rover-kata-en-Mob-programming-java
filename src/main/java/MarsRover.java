@@ -2,6 +2,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MarsRover {
+    public static final int LEFT_ROTATION = -1;
+    public static final int RIGHT_ROTATION = +1;
     private String orientation;
     private final List<String> rotations = Arrays.asList("N", "E", "S", "W");
 
@@ -30,15 +32,15 @@ public class MarsRover {
     }
 
     private void rotateLeft() {
-        orientation = rotations.get(moduleOfFour(rotations.indexOf(orientation) - 1));
+        orientation = rotate(LEFT_ROTATION);
     }
 
     private void rotateRight() {
-        orientation = rotations.get(moduleOfFour(rotations.indexOf(orientation) + 1));
+        orientation = rotate(RIGHT_ROTATION);
     }
 
-    private int moduleOfFour(int number) {
-        return (number + 4) % 4;
+    private String rotate(int direction) {
+        return rotations.get((rotations.indexOf(orientation) + direction + 4) % 4);
     }
 
 }
