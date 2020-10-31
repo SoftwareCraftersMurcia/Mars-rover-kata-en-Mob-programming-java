@@ -33,6 +33,8 @@ public class MarsRover {
                     orientation = "N";
                 } else if ("W".equals(orientation)) {
                     orientation = "S";
+                } else if ("S".equals(orientation)) {
+                    orientation = "E";
                 } else {
 
                     orientation = "W";
