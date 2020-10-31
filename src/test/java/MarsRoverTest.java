@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -14,18 +17,12 @@ class MarsRoverTest {
         rover = new MarsRover();
     }
 
-    @Test
-    public void going_one_step_to_north_should_move_to_0_1_N() {
-        String result = rover.execute("M");
+    @ParameterizedTest
+    @CsvSource({"M,0:1:N", "MM,0:2:N"})
+    public void moves_forward_any_amount_of_times(String input, String expected) {
+        String result = rover.execute(input);
 
-        assertEquals("0:1:N", result);
-    }
-
-    @Test
-    public void going_two_steps_to_north_should_move_to_0_2_N() {
-        String result = rover.execute("MM");
-
-        assertEquals("0:2:N", result);
+        assertEquals(expected, result);
     }
 
     @Test
