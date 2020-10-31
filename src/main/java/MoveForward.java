@@ -1,10 +1,5 @@
-public class MoveForward extends MarsCommand {
-    public MoveForward(Position position) {
-        super(position);
-    }
-
-    @Override
-    void execute() {
+public class MoveForward implements MarsCommand {
+    public void execute(Position position) {
         position.moveForward();
     }
 }

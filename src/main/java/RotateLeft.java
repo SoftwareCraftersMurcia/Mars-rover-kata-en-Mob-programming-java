@@ -1,10 +1,5 @@
-public class RotateLeft extends MarsCommand{
-    public RotateLeft(Position position) {
-        super(position);
-    }
-
-    @Override
-    void execute() {
+public class RotateLeft implements MarsCommand{
+    public void execute(Position position) {
         position.rotateLeft();
     }
 }
