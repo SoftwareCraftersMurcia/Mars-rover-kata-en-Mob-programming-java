@@ -1,9 +1,12 @@
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class Position {
-    private final List<Character> rotations = Arrays.asList('N', 'E', 'S', 'W');
-    private final Orientation orientation;
+    private final List<Character> rotationsAsCharacter = Arrays.asList('N', 'E', 'S', 'W');
+    private final List<Orientation> rotations = Arrays.asList(Orientation.North, Orientation.East, Orientation.South, Orientation.West);
+    private Orientation orientation;
 
     private int positionX;
     private int positionY;
@@ -22,7 +25,8 @@ public class Position {
     }
 
     void rotate(int direction) {
-        this.orientationAsChar = rotations.get((rotations.indexOf(orientationAsChar) + direction + 4) % 4);
+        this.orientationAsChar = rotationsAsCharacter.get((rotationsAsCharacter.indexOf(orientationAsChar) + direction + 4) % 4);
+        this.orientation = rotations.get((rotations.indexOf(orientation) + direction + 4) % 4);
     }
 
     void moveY(int amount) {
@@ -35,9 +39,6 @@ public class Position {
 
     void moveForward() {
         switch (orientationAsChar) {
-            case 'N':
-                moveY(+1);
-                break;
             case 'S':
                 moveY(-1);
                 break;
@@ -46,6 +47,11 @@ public class Position {
                 break;
             case 'W':
                 moveX(-1);
+                break;
+        }
+        switch (orientation) {
+            case North:
+                moveY(+1);
                 break;
         }
     }
