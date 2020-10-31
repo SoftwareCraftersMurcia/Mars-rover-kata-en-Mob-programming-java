@@ -10,14 +10,18 @@ public class Position {
         this.orientation = orientation;
     }
 
-    public void rotateLeft() {
+    public Position rotateLeft() {
         this.orientation = orientation.rotateLeft();
-    }
-    public void rotateRight() {
-        this.orientation = orientation.rotateRight();
+        return new Position(positionX, positionY, orientation);
     }
 
-    public void moveForward() {
+    public Position rotateRight() {
+        this.orientation = orientation.rotateRight();
+        return new Position(positionX, positionY, orientation);
+    }
+
+
+    public Position moveForward() {
         switch (orientation) {
             case North:
                 moveY(+1);
@@ -32,6 +36,7 @@ public class Position {
                 moveX(-1);
                 break;
         }
+        return new Position(positionX, positionY, orientation);
     }
 
     @Override
