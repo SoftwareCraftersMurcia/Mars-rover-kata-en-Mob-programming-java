@@ -15,10 +15,7 @@ public class Position {
     }
 
     public Position moveForward() {
-        return this.move(orientation.movement());
-    }
-
-    private Position move(Movement movement) {
+        Movement movement = orientation.movement();
         return new Position(
                 roundWorld(positionX + movement.getHorizontalMovement()),
                 roundWorld(positionY + movement.getVerticalMovement()),
@@ -33,13 +30,5 @@ public class Position {
     @Override
     public String toString() {
         return positionX + ":" + positionY + ":" + orientation.toString();
-    }
-
-    private int moveY(int amount) {
-        return (positionY + amount + 10) % 10;
-    }
-
-    private int moveX(int amount) {
-        return (positionX + amount + 10) % 10;
     }
 }
