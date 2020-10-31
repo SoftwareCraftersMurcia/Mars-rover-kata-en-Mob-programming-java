@@ -1,4 +1,4 @@
-package mars.command;
+package mars.command.rotation;
 
 import mars.Position;
 import mars.orientation.Orientation;

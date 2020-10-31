@@ -1,9 +1,9 @@
 package mars;
 
 import mars.command.MarsCommand;
-import mars.command.MoveForward;
-import mars.command.RotateLeft;
-import mars.command.RotateRight;
+import mars.command.move.MoveForward;
+import mars.command.rotation.RotateLeft;
+import mars.command.rotation.RotateRight;
 import mars.orientation.North;
 
 import java.util.Map;

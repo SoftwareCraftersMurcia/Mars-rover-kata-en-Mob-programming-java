@@ -1,6 +1,6 @@
 package mars;
 
-import mars.command.RotationCommand;
+import mars.command.rotation.RotationCommand;
 import mars.orientation.Orientation;
 
 public class Position {

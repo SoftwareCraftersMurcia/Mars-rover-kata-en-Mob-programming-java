@@ -1,5 +1,6 @@
-package mars.command;
+package mars.command.rotation;
 
+import mars.command.MarsCommand;
 import mars.orientation.Orientation;
 
 public class RotateRight extends RotationCommand implements MarsCommand {
