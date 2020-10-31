@@ -21,6 +21,9 @@ public class MarsRover {
             if (command == 'M' && orientation == 'N') {
                 positionY++;
             }
+            if (command == 'M' && orientation == 'E') {
+                positionX++;
+            }
             if ('R' == command) {
                 rotateRight();
             }
