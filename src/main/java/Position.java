@@ -3,7 +3,10 @@ public class Position {
     private int positionY;
     private char orientation;
 
-    public Position() {
+    public Position(int positionX, int positionY, char orientation) {
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.orientation = orientation;
     }
 
     public int getPositionX() {

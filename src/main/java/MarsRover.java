@@ -4,13 +4,11 @@ import java.util.List;
 public class MarsRover {
     public static final int LEFT_ROTATION = -1;
     public static final int RIGHT_ROTATION = +1;
-    private final Position position = new Position();
+    private Position position;
     private final List<Character> rotations = Arrays.asList('N', 'E', 'S', 'W');
 
     public MarsRover() {
-        position.setOrientation('N');
-        position.setPositionX(0);
-        position.setPositionY(0);
+        position = new Position(0, 0, 'N');
     }
 
     public String execute(String commands) {
