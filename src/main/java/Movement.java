@@ -2,7 +2,7 @@ public class Movement {
     private final int horizontalMovement;
     private final int verticalMovement;
 
-    public Movement(int verticalMovement, int horizontalMovement) {
+    public Movement(int horizontalMovement, int verticalMovement) {
         this.horizontalMovement = horizontalMovement;
         this.verticalMovement = verticalMovement;
     }
