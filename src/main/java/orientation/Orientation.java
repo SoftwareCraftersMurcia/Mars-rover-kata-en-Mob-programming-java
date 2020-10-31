@@ -1,4 +1,6 @@
-interface Orientation {
+package orientation;
+
+public interface Orientation {
     Orientation rotateRight();
 
     Orientation rotateLeft();

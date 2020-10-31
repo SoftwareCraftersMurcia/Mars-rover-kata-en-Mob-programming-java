@@ -1,3 +1,5 @@
+package orientation;
+
 public class West implements Orientation {
     @Override
     public Orientation rotateRight() {
@@ -9,7 +11,7 @@ public class West implements Orientation {
         return new South();
     }
 
-    public Movement movement(){
+    public Movement movement() {
         return new Movement(-1, 0);
     }
 

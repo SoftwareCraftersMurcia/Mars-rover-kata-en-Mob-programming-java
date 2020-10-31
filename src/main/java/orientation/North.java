@@ -1,3 +1,5 @@
+package orientation;
+
 public class North implements Orientation {
     @Override
     public Orientation rotateRight() {

@@ -1,3 +1,5 @@
+package orientation;
+
 public class Movement {
     private final int horizontalMovement;
     private final int verticalMovement;

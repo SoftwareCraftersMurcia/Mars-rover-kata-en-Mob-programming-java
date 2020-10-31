@@ -1,3 +1,6 @@
+import orientation.Movement;
+import orientation.Orientation;
+
 public class Position {
     private final Orientation orientation;
 
