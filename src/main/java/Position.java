@@ -38,20 +38,18 @@ public class Position {
     }
 
     void moveForward() {
-        switch (orientationAsChar) {
-            case 'S':
-                moveY(-1);
-                break;
-            case 'E':
-                moveX(+1);
-                break;
-            case 'W':
-                moveX(-1);
-                break;
-        }
         switch (orientation) {
             case North:
                 moveY(+1);
+                break;
+            case South:
+                moveY(-1);
+                break;
+            case East:
+                moveX(+1);
+                break;
+            case West:
+                moveX(-1);
                 break;
         }
     }
