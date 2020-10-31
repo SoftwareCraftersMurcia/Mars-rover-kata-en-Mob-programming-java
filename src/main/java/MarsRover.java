@@ -29,7 +29,7 @@ public class MarsRover {
     private void moveForward() {
         switch (position.getOrientation()) {
             case 'N':
-                position.setPositionY((position.getPositionY() + 1 + 10) % 10);
+                moveY(+1);
                 break;
             case 'S':
                 position.setPositionY((position.getPositionY() - 1 + 10) % 10);
@@ -41,6 +41,10 @@ public class MarsRover {
                 position.setPositionX((position.getPositionX() - 1 + 10) % 10);
                 break;
         }
+    }
+
+    private void moveY(int amount) {
+        position.setPositionY((position.getPositionY() + amount + 10) % 10);
     }
 
     private void rotateLeft() {
