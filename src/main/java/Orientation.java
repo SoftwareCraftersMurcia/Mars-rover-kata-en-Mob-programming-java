@@ -15,11 +15,11 @@ public enum Orientation {
         return representation;
     }
 
-    public Orientation next() {
+    public Orientation rotateRight() {
         return rotations.get((rotations.indexOf(this) + 1 + 4) % 4);
     }
 
-    public Orientation previous() {
+    public Orientation rotateLeft() {
         return rotations.get((rotations.indexOf(this) - 1 + 4) % 4);
     }
 }

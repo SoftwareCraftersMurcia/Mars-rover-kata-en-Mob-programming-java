@@ -11,10 +11,10 @@ public class Position {
     }
 
     public void rotateLeft() {
-        this.orientation = orientation.previous();
+        this.orientation = orientation.rotateLeft();
     }
     public void rotateRight() {
-        this.orientation = orientation.next();
+        this.orientation = orientation.rotateRight();
     }
 
     public void moveForward() {
