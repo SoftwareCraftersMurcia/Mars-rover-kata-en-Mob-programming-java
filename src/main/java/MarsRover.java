@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class MarsRover {
     private String orientation;
+    private final String[] rotations = new String[]{"N", "E", "S", "W"};
 
     public MarsRover() {
         orientation = "N";
@@ -28,13 +29,11 @@ public class MarsRover {
     }
 
     private void rotateLeft() {
-        String[] rotations = {"N", "E", "S", "W"};
         int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) - 1 + 4) % 4;
         orientation = rotations[nextOrientation];
     }
 
     private void rotateRight() {
-        String[] rotations = {"N", "E", "S", "W"};
         int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) + 1 + 4) % 4;
         orientation = rotations[nextOrientation];
     }
