@@ -1,5 +1,7 @@
 package mars;
 
+import mars.command.move.MoveForward;
+import mars.command.move.MovementCommand;
 import mars.command.rotation.RotationCommand;
 import mars.orientation.Orientation;
 
@@ -19,8 +21,8 @@ public class Position {
         return new Position(positionX, positionY, rotation.rotate(orientation));
     }
 
-    public Position moveForward() {
-        Movement movement = orientation.movement();
+    public Position moveForward(MovementCommand movementCommand) {
+        Movement movement = movementCommand.move(orientation);
         return new Position(
                 roundWorld(positionX + movement.getHorizontalMovement()),
                 roundWorld(positionY + movement.getVerticalMovement()),
