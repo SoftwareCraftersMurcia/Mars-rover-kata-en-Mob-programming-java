@@ -16,7 +16,7 @@ public class MarsRover {
             }
             if ('R' == command) {
                 String[] rotations = {"N", "E", "S", "W"};
-                int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) + 1) % 4;
+                int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) + 1 + 4) % 4;
                 orientation = rotations[nextOrientation];
             }
 
