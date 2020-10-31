@@ -16,15 +16,15 @@ public class MarsRover {
             }
             if ('R' == command) {
                 String[] rotations = {"N", "E", "S", "W"};
-                int currentOrientation = Arrays.asList(rotations).indexOf(orientation);
+                int nextOrientation = Arrays.asList(rotations).indexOf(orientation)+1;
                 if ("W".equals(orientation)) {
                     orientation = rotations[0];
                 } else if ("N".equals(orientation)) {
-                    orientation = rotations[currentOrientation+1];
+                    orientation = rotations[nextOrientation];
                 } else if ("E".equals(orientation)) {
-                    orientation = rotations[currentOrientation+1];
+                    orientation = rotations[nextOrientation];
                 } else if ("S".equals(orientation)) {
-                    orientation = rotations[currentOrientation+1];
+                    orientation = rotations[nextOrientation];
                 }
             }
 
