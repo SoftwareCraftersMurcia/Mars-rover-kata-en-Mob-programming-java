@@ -6,6 +6,5 @@ public class MoveForward extends MarsCommand {
     @Override
     void execute() {
         position.moveForward();
-
     }
 }
