@@ -10,14 +10,9 @@ public class Position {
         this.orientation = orientation;
     }
 
-    public Position rotateLeft() {
-        return new Position(positionX, positionY, orientation.rotateLeft());
+    public Position rotate(RotationCommand rotation) {
+        return new Position(positionX, positionY, rotation.rotate(orientation));
     }
-
-    public Position rotateRight() {
-        return new Position(positionX, positionY, orientation.rotateRight());
-    }
-
 
     public Position moveForward() {
         switch (orientation) {
