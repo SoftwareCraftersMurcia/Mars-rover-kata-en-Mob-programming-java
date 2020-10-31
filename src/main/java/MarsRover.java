@@ -32,7 +32,7 @@ public class MarsRover {
                 position.moveY(+1);
                 break;
             case 'S':
-                position.setPositionY((position.getPositionY() - 1 + 10) % 10);
+                position.moveY(-1);
                 break;
             case 'E':
                 position.setPositionX((position.getPositionX() + 1 + 10) % 10);
