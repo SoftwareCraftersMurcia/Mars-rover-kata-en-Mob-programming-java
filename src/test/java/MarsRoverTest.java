@@ -44,7 +44,7 @@ class MarsRoverTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"LLM,0:9:S"})
+    @CsvSource({"LLM,0:9:S", "LLMM,0:8:S"})
     public void moves_south_any_number_of_times(String command, String expectedPosition) {
         String result = rover.execute(command);
 
@@ -52,7 +52,7 @@ class MarsRoverTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"MMMMMMMMMM,0:0:N", "RMMMMMMMMMM,0:0:E", "LMMMMMMMMMM,0:0:W"})
+    @CsvSource({"MMMMMMMMMM,0:0:N", "RMMMMMMMMMM,0:0:E", "LMMMMMMMMMM,0:0:W", "LLMMMMMMMMMM,0:0:S"})
     public void the_world_is_circular(String command, String expectedPosition) {
         String result = rover.execute(command);
 
