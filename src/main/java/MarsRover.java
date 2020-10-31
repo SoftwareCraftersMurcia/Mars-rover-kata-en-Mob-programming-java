@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MarsRover {
     private String orientation;
 
@@ -14,14 +16,15 @@ public class MarsRover {
             }
             if ('R' == command) {
                 String[] rotations = {"N", "E", "S", "W"};
+                int currentOrientation = Arrays.asList(rotations).indexOf(orientation);
                 if ("W".equals(orientation)) {
                     orientation = rotations[0];
                 } else if ("N".equals(orientation)) {
-                    orientation = rotations[1];
+                    orientation = rotations[currentOrientation+1];
                 } else if ("E".equals(orientation)) {
-                    orientation = rotations[2];
+                    orientation = rotations[currentOrientation+1];
                 } else if ("S".equals(orientation)) {
-                    orientation = rotations[3];
+                    orientation = rotations[currentOrientation+1];
                 }
             }
 
