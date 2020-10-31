@@ -19,10 +19,13 @@ public class MarsRover {
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M' && orientation == 'N') {
-                positionY = (positionY + 1 ) % 10;
+                positionY = (positionY + 1) % 10;
             }
             if (command == 'M' && orientation == 'E') {
-                positionX= (positionX + 1 ) % 10;
+                positionX = (positionX + 1) % 10;
+            }
+            if (command == 'M' && orientation == 'W') {
+                positionX = (positionX - 1 + 10) % 10;
             }
             if ('R' == command) {
                 rotateRight();
