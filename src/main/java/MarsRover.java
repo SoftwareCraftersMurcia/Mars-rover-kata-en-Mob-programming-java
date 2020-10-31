@@ -17,11 +17,11 @@ public class MarsRover {
                 if ("W".equals(orientation)) {
                     orientation = rotations[0];
                 } else if ("N".equals(orientation)) {
-                    orientation = "E";
+                    orientation = rotations[1];
                 } else if ("E".equals(orientation)) {
-                    orientation = "S";
+                    orientation = rotations[2];
                 } else if ("S".equals(orientation)) {
-                    orientation = "W";
+                    orientation = rotations[3];
                 }
             }
 
