@@ -6,7 +6,7 @@ public class MarsRover {
     private final Map<Character, MarsCommand> commands;
 
     public MarsRover() {
-        position = new Position(0, 0, Orientation.North);
+        position = new Position(0, 0, new North());
         commands = Map.of(
                 'M', new MoveForward(),
                 'R', new RotateRight(),

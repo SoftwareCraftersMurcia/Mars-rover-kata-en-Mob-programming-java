@@ -15,17 +15,7 @@ public class Position {
     }
 
     public Position moveForward() {
-        switch (orientation) {
-            case North:
-                return this.move(new Movement(0, 1));
-            case South:
-                return this.move(new Movement( 0, -1));
-            case East:
-                return this.move(new Movement( 1, 0));
-            case West:
-                return this.move(new Movement( -1, 0));
-        }
-        throw new IllegalArgumentException("The orientation " + orientation + " is not valid");
+        return this.move(orientation.movement());
     }
 
     private Position move(Movement movement) {
