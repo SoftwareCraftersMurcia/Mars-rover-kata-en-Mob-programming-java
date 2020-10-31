@@ -4,7 +4,7 @@ public class MarsRover {
     private Position position;
 
     public MarsRover() {
-        position = new Position(0, 0, 'N', Orientation.North);
+        position = new Position(0, 0, Orientation.North);
     }
 
     public String execute(String commands) {
