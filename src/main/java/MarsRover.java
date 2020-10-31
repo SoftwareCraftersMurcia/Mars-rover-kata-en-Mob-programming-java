@@ -35,14 +35,19 @@ public class MarsRover {
     }
 
     private void moveForward() {
-        if (orientation == 'N') {
-            positionY = (positionY + 1 + 10) % 10;
-        } else if (orientation == 'S') {
-            positionY = (positionY - 1 + 10) % 10;
-        } else if (orientation == 'E') {
-            positionX = (positionX + 1 + 10) % 10;
-        } else if (orientation == 'W') {
-            positionX = (positionX - 1 + 10) % 10;
+        switch (orientation) {
+            case 'N':
+                positionY = (positionY + 1 + 10) % 10;
+                break;
+            case 'S':
+                positionY = (positionY - 1 + 10) % 10;
+                break;
+            case 'E':
+                positionX = (positionX + 1 + 10) % 10;
+                break;
+            case 'W':
+                positionX = (positionX - 1 + 10) % 10;
+                break;
         }
     }
 
