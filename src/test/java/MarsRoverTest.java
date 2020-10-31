@@ -96,23 +96,6 @@ class MarsRoverTest {
         assertEquals("0:0:N", result);
     }
 
-    @Test
-    public void from_west_going_left_should_face_south() {
-        MarsRover rover = new MarsRover("W");
-
-        String result = rover.execute("L");
-
-        assertEquals("0:0:S", result);
-    }
-
-    @Test
-    public void from_east_going_left_should_face_east() {
-        MarsRover rover = new MarsRover("E");
-
-        String result = rover.execute("L");
-
-        assertEquals("0:0:N", result);
-    }
 /*
 	@Test
 	public void going_two_times_left_should_face_south() {
