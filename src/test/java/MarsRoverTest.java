@@ -19,10 +19,10 @@ class MarsRoverTest {
 
     @ParameterizedTest
     @CsvSource({"M,0:1:N", "MM,0:2:N"})
-    public void moves_forward_any_amount_of_times(String input, String expected) {
-        String result = rover.execute(input);
+    public void moves_forward_any_number_of_times(String command, String expectedPosition) {
+        String result = rover.execute(command);
 
-        assertEquals(expected, result);
+        assertEquals(expectedPosition, result);
     }
 
     @ParameterizedTest
