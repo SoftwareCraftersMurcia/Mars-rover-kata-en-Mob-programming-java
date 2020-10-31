@@ -19,14 +19,18 @@ public class MarsRover {
             }
 
             if ('L' == command) {
-                String[] rotations = {"N", "E", "S", "W"};
-                int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) - 1 + 4) % 4;
-                orientation = rotations[nextOrientation];
+                rotateLeft();
             }
         }
 
 
         return "0:" + number + ":" + orientation;
+    }
+
+    private void rotateLeft() {
+        String[] rotations = {"N", "E", "S", "W"};
+        int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) - 1 + 4) % 4;
+        orientation = rotations[nextOrientation];
     }
 
     private void rotateRight() {
