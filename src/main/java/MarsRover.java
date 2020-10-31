@@ -18,7 +18,7 @@ public class MarsRover {
     public String execute(String commands) {
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
-            if (command == 'M') {
+            if (command == 'M' && orientation == 'N') {
                 positionY++;
             }
             if ('R' == command) {
