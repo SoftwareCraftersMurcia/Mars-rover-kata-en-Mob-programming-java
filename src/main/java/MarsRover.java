@@ -11,7 +11,7 @@ public class MarsRover {
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                position.moveForward();
+                new MoveForward(position).execute();
             }
             if ('R' == command) {
                 position.rotate(RIGHT_ROTATION);
