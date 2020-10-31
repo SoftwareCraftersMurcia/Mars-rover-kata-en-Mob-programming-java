@@ -4,15 +4,13 @@ import java.util.List;
 public class MarsRover {
     public static final int LEFT_ROTATION = -1;
     public static final int RIGHT_ROTATION = +1;
-    private int positionX;
-    private int positionY;
-    private char orientation;
+    private final Position position = new Position();
     private final List<Character> rotations = Arrays.asList('N', 'E', 'S', 'W');
 
     public MarsRover() {
-        orientation = 'N';
-        positionX = 0;
-        positionY = 0;
+        position.setOrientation('N');
+        position.setPositionX(0);
+        position.setPositionY(0);
     }
 
     public String execute(String commands) {
@@ -31,36 +29,36 @@ public class MarsRover {
         }
 
 
-        return positionX + ":" + positionY + ":" + orientation;
+        return position.getPositionX() + ":" + position.getPositionY() + ":" + position.getOrientation();
     }
 
     private void moveForward() {
-        switch (orientation) {
+        switch (position.getOrientation()) {
             case 'N':
-                positionY = (positionY + 1 + 10) % 10;
+                position.setPositionY((position.getPositionY() + 1 + 10) % 10);
                 break;
             case 'S':
-                positionY = (positionY - 1 + 10) % 10;
+                position.setPositionY((position.getPositionY() - 1 + 10) % 10);
                 break;
             case 'E':
-                positionX = (positionX + 1 + 10) % 10;
+                position.setPositionX((position.getPositionX() + 1 + 10) % 10);
                 break;
             case 'W':
-                positionX = (positionX - 1 + 10) % 10;
+                position.setPositionX((position.getPositionX() - 1 + 10) % 10);
                 break;
         }
     }
 
     private void rotateLeft() {
-        orientation = rotate(LEFT_ROTATION);
+        position.setOrientation(rotate(LEFT_ROTATION));
     }
 
     private void rotateRight() {
-        orientation = rotate(RIGHT_ROTATION);
+        position.setOrientation(rotate(RIGHT_ROTATION));
     }
 
     private Character rotate(int direction) {
-        return rotations.get((rotations.indexOf(orientation) + direction + 4) % 4);
+        return rotations.get((rotations.indexOf(position.getOrientation()) + direction + 4) % 4);
     }
 
 }
