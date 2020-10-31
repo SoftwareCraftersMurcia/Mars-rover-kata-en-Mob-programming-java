@@ -1,11 +1,7 @@
-import java.util.Arrays;
-import java.util.List;
-
 public class MarsRover {
     public static final int LEFT_ROTATION = -1;
     public static final int RIGHT_ROTATION = +1;
     private Position position;
-    private final List<Character> rotations = Arrays.asList('N', 'E', 'S', 'W');
 
     public MarsRover() {
         position = new Position(0, 0, 'N');
@@ -48,15 +44,11 @@ public class MarsRover {
     }
 
     private void rotateLeft() {
-        position.setOrientation(rotate(LEFT_ROTATION));
+        position.setOrientation(position.rotate(LEFT_ROTATION));
     }
 
     private void rotateRight() {
-        position.setOrientation(rotate(RIGHT_ROTATION));
-    }
-
-    private Character rotate(int direction) {
-        return rotations.get((rotations.indexOf(position.getOrientation()) + direction + 4) % 4);
+        position.setOrientation(position.rotate(RIGHT_ROTATION));
     }
 
 }

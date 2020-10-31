@@ -1,4 +1,9 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Position {
+    private final List<Character> rotations = Arrays.asList('N', 'E', 'S', 'W');
+
     private int positionX;
     private int positionY;
     private char orientation;
@@ -31,5 +36,9 @@ public class Position {
 
     public void setOrientation(char orientation) {
         this.orientation = orientation;
+    }
+
+    Character rotate(int direction) {
+        return rotations.get((rotations.indexOf(getOrientation()) + direction + 4) % 4);
     }
 }
