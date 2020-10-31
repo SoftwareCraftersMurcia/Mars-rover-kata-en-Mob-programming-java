@@ -18,22 +18,20 @@ public class MarsRover {
     public String execute(String commands) {
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
-            if (command == 'M')
+            if (command == 'M') {
                 if (orientation == 'N') {
                     positionY = (positionY + 1 + 10) % 10;
                 }
-            if (command == 'M')
                 if (orientation == 'S') {
                     positionY = (positionY - 1 + 10) % 10;
                 }
-            if (command == 'M')
                 if (orientation == 'E') {
                     positionX = (positionX + 1 + 10) % 10;
                 }
-            if (command == 'M')
                 if (orientation == 'W') {
                     positionX = (positionX - 1 + 10) % 10;
                 }
+            }
             if ('R' == command) {
                 rotateRight();
             }
