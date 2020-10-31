@@ -6,13 +6,14 @@ public class MarsRover {
     public static final int RIGHT_ROTATION = +1;
     private String orientation;
     private final List<String> rotations = Arrays.asList("N", "E", "S", "W");
+    private int positionY;
 
     public MarsRover() {
         orientation = "N";
+        positionY = 0;
     }
 
     public String execute(String commands) {
-        int positionY = 0;
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
