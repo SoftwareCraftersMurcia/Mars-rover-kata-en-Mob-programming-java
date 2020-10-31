@@ -17,7 +17,7 @@ public class MarsRover {
     public String execute(String commands) {
         for (int i = 0; i < commands.length(); i++) {
             MarsCommand command = this.commands.get(commands.charAt(i));
-            command.execute(position);
+            position = command.execute(position);
         }
 
         return position.toString();
