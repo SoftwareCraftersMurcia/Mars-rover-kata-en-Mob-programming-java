@@ -25,32 +25,12 @@ class MarsRoverTest {
         assertEquals(expected, result);
     }
 
-    @Test
-    public void from_north_going_right_should_face_east() {
-        String result = rover.execute("R");
+    @ParameterizedTest
+    @CsvSource({"R,0:0:E", "RR,0:0:S", "RRR,0:0:W", "RRRR,0:0:N"})
+    public void rotates_right_any_number_of_times(String command, String expectedPosition) {
+        String result = rover.execute(command);
 
-        assertEquals("0:0:E", result);
-    }
-
-    @Test
-    public void from_north_going_right_twice_should_face_south() {
-        String result = rover.execute("RR");
-
-        assertEquals("0:0:S", result);
-    }
-
-    @Test
-    public void from_north_going_right_three_times_should_face_west() {
-        String result = rover.execute("RRR");
-
-        assertEquals("0:0:W", result);
-    }
-
-    @Test
-    public void from_north_going_right_four_times_should_face_north() {
-        String result = rover.execute("RRRR");
-
-        assertEquals("0:0:N", result);
+        assertEquals(expectedPosition, result);
     }
 
     @Test
