@@ -70,6 +70,15 @@ class MarsRoverTest {
     }
 
     @Test
+    public void from_north_going_left_twice_should_face_south() {
+        MarsRover rover = new MarsRover("N");
+
+        String result = rover.execute("LL");
+
+        assertEquals("0:0:S", result);
+    }
+
+    @Test
     public void from_west_going_left_should_face_south() {
         MarsRover rover = new MarsRover("W");
 
