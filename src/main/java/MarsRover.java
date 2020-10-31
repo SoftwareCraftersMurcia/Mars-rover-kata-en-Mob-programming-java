@@ -17,7 +17,7 @@ public class MarsRover {
             }
 
             if ('L' == command) {
-                position.rotate(LEFT_ROTATION);
+                new RotateLeft(position).execute();
             }
         }
 
