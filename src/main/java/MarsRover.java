@@ -22,7 +22,7 @@ public class MarsRover {
                 positionY = (positionY + 1 ) % 10;
             }
             if (command == 'M' && orientation == 'E') {
-                positionX++;
+                positionX= (positionX + 1 ) % 10;
             }
             if ('R' == command) {
                 rotateRight();
