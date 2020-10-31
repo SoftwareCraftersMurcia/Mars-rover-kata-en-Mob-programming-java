@@ -44,11 +44,11 @@ public class MarsRover {
     }
 
     private void rotateLeft() {
-        position.setOrientation(position.rotate(LEFT_ROTATION));
+        position.rotate(LEFT_ROTATION);
     }
 
     private void rotateRight() {
-        position.setOrientation(position.rotate(RIGHT_ROTATION));
+        position.rotate(RIGHT_ROTATION);
     }
 
 }

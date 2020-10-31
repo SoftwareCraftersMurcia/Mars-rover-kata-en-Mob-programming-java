@@ -34,11 +34,7 @@ public class Position {
         return orientation;
     }
 
-    public void setOrientation(char orientation) {
-        this.orientation = orientation;
-    }
-
-    Character rotate(int direction) {
-        return rotations.get((rotations.indexOf(getOrientation()) + direction + 4) % 4);
+    void rotate(int direction) {
+        this.orientation = rotations.get((rotations.indexOf(getOrientation()) + direction + 4) % 4);
     }
 }
