@@ -1,8 +1,9 @@
 import java.util.Arrays;
+import java.util.List;
 
 public class MarsRover {
     private String orientation;
-    private final String[] rotations = new String[]{"N", "E", "S", "W"};
+    private final List<String> rotations = Arrays.asList("N", "E", "S", "W");
 
     public MarsRover() {
         orientation = "N";
@@ -29,13 +30,13 @@ public class MarsRover {
     }
 
     private void rotateLeft() {
-        int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) - 1 + 4) % 4;
-        orientation = rotations[nextOrientation];
+        int nextOrientation = (rotations.indexOf(orientation) - 1 + 4) % 4;
+        orientation = rotations.get(nextOrientation);
     }
 
     private void rotateRight() {
-        int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) + 1 + 4) % 4;
-        orientation = rotations[nextOrientation];
+        int nextOrientation = (rotations.indexOf(orientation) + 1 + 4) % 4;
+        orientation = rotations.get(nextOrientation);
     }
 
 }
