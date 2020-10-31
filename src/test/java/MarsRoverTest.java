@@ -44,7 +44,7 @@ class MarsRoverTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"MMMMMMMMMM,0:0:N", "RMMMMMMMMMM,0:0:E"})
+    @CsvSource({"MMMMMMMMMM,0:0:N", "RMMMMMMMMMM,0:0:E", "LMMMMMMMMMM,0:0:W"})
     public void the_world_is_circular(String command, String expectedPosition) {
         String result = rover.execute(command);
 
