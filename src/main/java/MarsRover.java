@@ -6,11 +6,11 @@ public class MarsRover {
     public static final int RIGHT_ROTATION = +1;
     private int positionX;
     private int positionY;
-    private String orientation;
-    private final List<String> rotations = Arrays.asList("N", "E", "S", "W");
+    private char orientation;
+    private final List<Character> rotations = Arrays.asList('N', 'E', 'S', 'W');
 
     public MarsRover() {
-        orientation = "N";
+        orientation = 'N';
         positionX = 0;
         positionY = 0;
     }
@@ -42,7 +42,7 @@ public class MarsRover {
         orientation = rotate(RIGHT_ROTATION);
     }
 
-    private String rotate(int direction) {
+    private Character rotate(int direction) {
         return rotations.get((rotations.indexOf(orientation) + direction + 4) % 4);
     }
 
