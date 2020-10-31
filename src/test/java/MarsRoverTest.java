@@ -26,7 +26,7 @@ class MarsRoverTest {
 
     @Test
     public void from_north_going_right_should_face_east() {
-        MarsRover rover = new MarsRover("N");
+        MarsRover rover = new MarsRover();
 
         String result = rover.execute("R");
 
@@ -35,7 +35,7 @@ class MarsRoverTest {
 
     @Test
     public void from_north_going_right_twice_should_face_south() {
-        MarsRover rover = new MarsRover("N");
+        MarsRover rover = new MarsRover();
 
         String result = rover.execute("RR");
 
@@ -44,7 +44,7 @@ class MarsRoverTest {
 
     @Test
     public void from_north_going_right_three_times_should_face_west() {
-        MarsRover rover = new MarsRover("N");
+        MarsRover rover = new MarsRover();
 
         String result = rover.execute("RRR");
 
@@ -53,7 +53,7 @@ class MarsRoverTest {
 
     @Test
     public void from_north_going_right_four_times_should_face_north() {
-        MarsRover rover = new MarsRover("N");
+        MarsRover rover = new MarsRover();
 
         String result = rover.execute("RRRR");
 
@@ -62,7 +62,7 @@ class MarsRoverTest {
 
     @Test
     public void from_north_going_left_should_face_west() {
-        MarsRover rover = new MarsRover("N");
+        MarsRover rover = new MarsRover();
 
         String result = rover.execute("L");
 
@@ -71,7 +71,7 @@ class MarsRoverTest {
 
     @Test
     public void from_north_going_left_twice_should_face_south() {
-        MarsRover rover = new MarsRover("N");
+        MarsRover rover = new MarsRover();
 
         String result = rover.execute("LL");
 
@@ -80,7 +80,7 @@ class MarsRoverTest {
 
     @Test
     public void from_north_going_left_three_times_should_face_east() {
-        MarsRover rover = new MarsRover("N");
+        MarsRover rover = new MarsRover();
 
         String result = rover.execute("LLL");
 
@@ -89,7 +89,7 @@ class MarsRoverTest {
 
     @Test
     public void from_north_going_left_four_times_should_face_north() {
-        MarsRover rover = new MarsRover("N");
+        MarsRover rover = new MarsRover();
 
         String result = rover.execute("LLLL");
 
