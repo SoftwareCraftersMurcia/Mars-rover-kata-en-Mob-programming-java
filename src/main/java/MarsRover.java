@@ -19,18 +19,7 @@ public class MarsRover {
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                if (orientation == 'N') {
-                    positionY = (positionY + 1 + 10) % 10;
-                }
-                if (orientation == 'S') {
-                    positionY = (positionY - 1 + 10) % 10;
-                }
-                if (orientation == 'E') {
-                    positionX = (positionX + 1 + 10) % 10;
-                }
-                if (orientation == 'W') {
-                    positionX = (positionX - 1 + 10) % 10;
-                }
+                moveForward();
             }
             if ('R' == command) {
                 rotateRight();
@@ -43,6 +32,21 @@ public class MarsRover {
 
 
         return positionX + ":" + positionY + ":" + orientation;
+    }
+
+    private void moveForward() {
+        if (orientation == 'N') {
+            positionY = (positionY + 1 + 10) % 10;
+        }
+        if (orientation == 'S') {
+            positionY = (positionY - 1 + 10) % 10;
+        }
+        if (orientation == 'E') {
+            positionX = (positionX + 1 + 10) % 10;
+        }
+        if (orientation == 'W') {
+            positionX = (positionX - 1 + 10) % 10;
+        }
     }
 
     private void rotateLeft() {
