@@ -21,6 +21,8 @@ public class MarsRover {
                     orientation = "N";
                 } else if ("N".equals(orientation)) {
                     orientation = "E";
+                } else if ("E".equals(orientation)) {
+                    orientation = "S";
                 }
             }
 
