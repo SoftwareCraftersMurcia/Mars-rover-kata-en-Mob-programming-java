@@ -1,5 +1,5 @@
 public class MarsRover {
-    private String orientation = "N";
+    private String orientation;
 
     public MarsRover() {
         orientation = "N";
@@ -38,7 +38,7 @@ public class MarsRover {
         }
 
 
-        return "0:" + String.valueOf(number) + ":" + orientation;
+        return "0:" + number + ":" + orientation;
     }
 
 }
