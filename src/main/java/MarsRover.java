@@ -12,11 +12,11 @@ public class MarsRover {
     }
 
     public String execute(String commands) {
-        int number = 0;
+        int positionY = 0;
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                number++;
+                positionY++;
             }
             if ('R' == command) {
                 rotateRight();
@@ -28,7 +28,7 @@ public class MarsRover {
         }
 
 
-        return "0:" + number + ":" + orientation;
+        return "0:" + positionY + ":" + orientation;
     }
 
     private void rotateLeft() {
