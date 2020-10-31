@@ -35,16 +35,12 @@ public class MarsRover {
                 position.moveY(-1);
                 break;
             case 'E':
-                moveX(+1);
+                position.moveX(+1);
                 break;
             case 'W':
-                moveX(-1);
+                position.moveX(-1);
                 break;
         }
-    }
-
-    private void moveX(int amount) {
-        position.setPositionX((position.getPositionX() + amount + 10) % 10);
     }
 
     private void rotateLeft() {

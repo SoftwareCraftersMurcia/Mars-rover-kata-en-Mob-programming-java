@@ -38,4 +38,8 @@ public class Position {
     void moveY(int amount) {
         this.positionY = (positionY + amount + 10) % 10;
     }
+
+    void moveX(int amount) {
+        setPositionX((getPositionX() + amount + 10) % 10);
+    }
 }
