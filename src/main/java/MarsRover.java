@@ -4,12 +4,14 @@ import java.util.List;
 public class MarsRover {
     public static final int LEFT_ROTATION = -1;
     public static final int RIGHT_ROTATION = +1;
+    private int positionX;
+    private int positionY;
     private String orientation;
     private final List<String> rotations = Arrays.asList("N", "E", "S", "W");
-    private int positionY;
 
     public MarsRover() {
         orientation = "N";
+        positionX = 0;
         positionY = 0;
     }
 
@@ -29,7 +31,7 @@ public class MarsRover {
         }
 
 
-        return "0:" + positionY + ":" + orientation;
+        return positionX + ":" + positionY + ":" + orientation;
     }
 
     private void rotateLeft() {
