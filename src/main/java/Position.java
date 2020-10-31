@@ -3,24 +3,26 @@ import java.util.List;
 
 public class Position {
     private final List<Character> rotations = Arrays.asList('N', 'E', 'S', 'W');
+    private final Orientation orientation;
 
     private int positionX;
     private int positionY;
-    private char orientation;
+    private char orientationAsChar;
 
-    public Position(int positionX, int positionY, char orientation) {
+    public Position(int positionX, int positionY, char orientationAsChar, Orientation orientation) {
         this.positionX = positionX;
         this.positionY = positionY;
+        this.orientationAsChar = orientationAsChar;
         this.orientation = orientation;
     }
 
     @Override
     public String toString() {
-        return positionX + ":" + positionY + ":" + orientation;
+        return positionX + ":" + positionY + ":" + orientationAsChar;
     }
 
     void rotate(int direction) {
-        this.orientation = rotations.get((rotations.indexOf(orientation) + direction + 4) % 4);
+        this.orientationAsChar = rotations.get((rotations.indexOf(orientationAsChar) + direction + 4) % 4);
     }
 
     void moveY(int amount) {
@@ -32,7 +34,7 @@ public class Position {
     }
 
     void moveForward() {
-        switch (orientation) {
+        switch (orientationAsChar) {
             case 'N':
                 moveY(+1);
                 break;
