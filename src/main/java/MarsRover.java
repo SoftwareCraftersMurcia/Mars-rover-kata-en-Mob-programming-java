@@ -23,7 +23,7 @@ public class MarsRover {
         }
 
 
-        return position.getPositionX() + ":" + position.getPositionY() + ":" + position.getOrientation();
+        return position.toString();
     }
 
     private void moveForward() {

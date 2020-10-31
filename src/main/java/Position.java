@@ -14,6 +14,11 @@ public class Position {
         this.orientation = orientation;
     }
 
+    @Override
+    public String toString() {
+        return getPositionX() + ":" + getPositionY() + ":" + getOrientation();
+    }
+
     public int getPositionX() {
         return positionX;
     }
