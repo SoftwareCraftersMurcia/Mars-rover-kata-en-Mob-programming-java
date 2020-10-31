@@ -36,6 +36,15 @@ class MarsRoverTest {
     }
 
     @ParameterizedTest
+    @CsvSource({"LM,1:0:W" })
+    @Disabled
+    public void moves_west_any_number_of_times(String command, String expectedPosition) {
+        String result = rover.execute(command);
+
+        assertEquals(expectedPosition, result);
+    }
+
+    @ParameterizedTest
     @CsvSource({"R,0:0:E", "RR,0:0:S", "RRR,0:0:W", "RRRR,0:0:N"})
     public void rotates_right_any_number_of_times(String command, String expectedPosition) {
         String result = rover.execute(command);
