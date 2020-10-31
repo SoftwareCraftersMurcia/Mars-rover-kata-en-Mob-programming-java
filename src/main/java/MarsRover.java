@@ -1,6 +1,5 @@
 public class MarsRover {
     public static final int LEFT_ROTATION = -1;
-    public static final int RIGHT_ROTATION = +1;
     private Position position;
 
     public MarsRover() {
@@ -14,7 +13,7 @@ public class MarsRover {
                 new MoveForward(position).execute();
             }
             if ('R' == command) {
-                position.rotate(RIGHT_ROTATION);
+                new RotateRight(position).execute();
             }
 
             if ('L' == command) {
