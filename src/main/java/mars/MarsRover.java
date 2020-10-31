@@ -9,7 +9,6 @@ import mars.orientation.North;
 import java.util.Map;
 
 public class MarsRover {
-    public static final int LEFT_ROTATION = -1;
     private Position position;
     private final Map<Character, MarsCommand> commands;
 
