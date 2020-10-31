@@ -42,4 +42,8 @@ public class Position {
     void rotate(int direction) {
         this.orientation = rotations.get((rotations.indexOf(getOrientation()) + direction + 4) % 4);
     }
+
+    void moveY(int amount) {
+        setPositionY((getPositionY() + amount + 10) % 10);
+    }
 }
