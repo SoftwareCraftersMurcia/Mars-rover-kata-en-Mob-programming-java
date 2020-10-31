@@ -21,6 +21,9 @@ public class MarsRover {
             if (command == 'M' && orientation == 'N') {
                 positionY = (positionY + 1) % 10;
             }
+            if (command == 'M' && orientation == 'S') {
+                positionY = (positionY - 1 + 10) % 10;
+            }
             if (command == 'M' && orientation == 'E') {
                 positionX = (positionX + 1) % 10;
             }
