@@ -21,16 +21,9 @@ public class MarsRover {
             }
 
             if ('L' == command) {
-                if ("E".equals(orientation)) {
-                    orientation = "N";
-                } else if ("W".equals(orientation)) {
-                    orientation = "S";
-                } else if ("S".equals(orientation)) {
-                    orientation = "E";
-                } else {
-                    orientation = "W";
-                }
-
+                String[] rotations = {"N", "E", "S", "W"};
+                int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) - 1 + 4) % 4;
+                orientation = rotations[nextOrientation];
             }
         }
 
