@@ -17,15 +17,7 @@ public class MarsRover {
             if ('R' == command) {
                 String[] rotations = {"N", "E", "S", "W"};
                 int nextOrientation = (Arrays.asList(rotations).indexOf(orientation) + 1) % 4;
-                if ("W".equals(orientation)) {
-                    orientation = rotations[nextOrientation];
-                } else if ("N".equals(orientation)) {
-                    orientation = rotations[nextOrientation];
-                } else if ("E".equals(orientation)) {
-                    orientation = rotations[nextOrientation];
-                } else if ("S".equals(orientation)) {
-                    orientation = rotations[nextOrientation];
-                }
+                orientation = rotations[nextOrientation];
             }
 
             if ('L' == command) {
