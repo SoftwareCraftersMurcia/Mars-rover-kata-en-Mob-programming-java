@@ -1,4 +1,6 @@
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -20,6 +22,15 @@ class MarsRoverTest {
     @ParameterizedTest
     @CsvSource({"M,0:1:N", "MM,0:2:N"})
     public void moves_north_any_number_of_times(String command, String expectedPosition) {
+        String result = rover.execute(command);
+
+        assertEquals(expectedPosition, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"RM,1:0:E"})
+    @Disabled
+    public void moves_east_any_number_of_times(String command, String expectedPosition) {
         String result = rover.execute(command);
 
         assertEquals(expectedPosition, result);
