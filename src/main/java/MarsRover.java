@@ -30,13 +30,15 @@ public class MarsRover {
     }
 
     private void rotateLeft() {
-        int nextOrientation = (rotations.indexOf(orientation) - 1 + 4) % 4;
-        orientation = rotations.get(nextOrientation);
+        orientation = rotations.get(moduleOfFour(rotations.indexOf(orientation) - 1));
     }
 
     private void rotateRight() {
-        int nextOrientation = (rotations.indexOf(orientation) + 1 + 4) % 4;
-        orientation = rotations.get(nextOrientation);
+        orientation = rotations.get(moduleOfFour(rotations.indexOf(orientation) + 1));
+    }
+
+    private int moduleOfFour(int number) {
+        return (number + 4) % 4;
     }
 
 }
