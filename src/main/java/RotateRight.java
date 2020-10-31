@@ -1,5 +1,5 @@
-public class RotateRight implements MarsCommand{
-    public void execute(Position position) {
-        position.rotateRight();
+public class RotateRight implements MarsCommand {
+    public Position execute(Position position) {
+        return position.rotateRight();
     }
 }

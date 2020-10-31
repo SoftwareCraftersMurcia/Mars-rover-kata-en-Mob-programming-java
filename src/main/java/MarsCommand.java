@@ -1,3 +1,3 @@
 interface MarsCommand {
-    void execute(Position position);
+    Position execute(Position position);
 }
