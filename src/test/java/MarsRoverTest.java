@@ -28,6 +28,14 @@ class MarsRoverTest {
     }
 
     @ParameterizedTest
+    @CsvSource({"MMMMMMMMMM,0:0:N"})
+    public void the_world_is_circular(String command, String expectedPosition) {
+        String result = rover.execute(command);
+
+        assertEquals(expectedPosition, result);
+    }
+
+    @ParameterizedTest
     @CsvSource({"RM,1:0:E", "RMM,2:0:E" })
     public void moves_east_any_number_of_times(String command, String expectedPosition) {
         String result = rover.execute(command);
