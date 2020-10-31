@@ -1,8 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
-
 public class Position {
-    private final List<Orientation> rotations = Arrays.asList(Orientation.North, Orientation.East, Orientation.South, Orientation.West);
     private Orientation orientation;
 
     private int positionX;
@@ -14,8 +10,11 @@ public class Position {
         this.orientation = orientation;
     }
 
-    public void rotate(int direction) {
-        this.orientation = rotations.get((rotations.indexOf(orientation) + direction + 4) % 4);
+    public void rotateLeft() {
+        this.orientation = orientation.previous();
+    }
+    public void rotateRight() {
+        this.orientation = orientation.next();
     }
 
     public void moveForward() {

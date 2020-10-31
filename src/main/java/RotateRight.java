@@ -5,6 +5,6 @@ public class RotateRight extends MarsCommand{
 
     @Override
     void execute() {
-        position.rotate(+1);
+        position.rotateRight();
     }
 }
