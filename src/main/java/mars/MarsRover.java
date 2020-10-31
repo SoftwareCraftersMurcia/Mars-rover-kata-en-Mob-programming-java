@@ -1,4 +1,10 @@
-import orientation.North;
+package mars;
+
+import mars.command.MarsCommand;
+import mars.command.MoveForward;
+import mars.command.RotateLeft;
+import mars.command.RotateRight;
+import mars.orientation.North;
 
 import java.util.Map;
 

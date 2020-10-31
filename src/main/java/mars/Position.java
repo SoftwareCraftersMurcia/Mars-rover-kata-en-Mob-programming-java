@@ -1,5 +1,7 @@
-import orientation.Movement;
-import orientation.Orientation;
+package mars;
+
+import mars.command.RotationCommand;
+import mars.orientation.Orientation;
 
 public class Position {
     private final Orientation orientation;

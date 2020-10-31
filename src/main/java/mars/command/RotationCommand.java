@@ -1,4 +1,7 @@
-import orientation.Orientation;
+package mars.command;
+
+import mars.Position;
+import mars.orientation.Orientation;
 
 public abstract class RotationCommand {
     public Position execute(Position position) {

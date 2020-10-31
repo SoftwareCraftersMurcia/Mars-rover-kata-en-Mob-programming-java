@@ -1,4 +1,4 @@
-package orientation;
+package mars;
 
 public class Movement {
     private final int horizontalMovement;

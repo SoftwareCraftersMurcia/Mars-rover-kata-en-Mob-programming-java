@@ -1,4 +1,6 @@
-package orientation;
+package mars.orientation;
+
+import mars.Movement;
 
 public class West implements Orientation {
     @Override

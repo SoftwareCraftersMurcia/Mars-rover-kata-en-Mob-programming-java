@@ -1,23 +1,25 @@
-package orientation;
+package mars.orientation;
 
-public class Est implements Orientation {
+import mars.Movement;
+
+public class South implements Orientation {
     @Override
     public Orientation rotateRight() {
-        return new South();
+        return new West();
     }
 
     @Override
     public Orientation rotateLeft() {
-        return new North();
+        return new Est();
     }
 
     @Override
     public Movement movement(){
-        return new Movement(1, 0);
+        return new Movement(0, -1);
     }
 
     @Override
     public String toString() {
-        return "E";
+        return "S";
     }
 }

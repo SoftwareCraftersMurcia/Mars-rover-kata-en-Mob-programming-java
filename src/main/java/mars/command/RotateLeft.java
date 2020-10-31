@@ -1,4 +1,6 @@
-import orientation.Orientation;
+package mars.command;
+
+import mars.orientation.Orientation;
 
 public class RotateLeft extends RotationCommand implements MarsCommand {
     @Override

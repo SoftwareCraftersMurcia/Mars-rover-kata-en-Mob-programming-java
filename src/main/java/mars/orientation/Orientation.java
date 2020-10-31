@@ -1,4 +1,6 @@
-package orientation;
+package mars.orientation;
+
+import mars.Movement;
 
 public interface Orientation {
     Orientation rotateRight();
