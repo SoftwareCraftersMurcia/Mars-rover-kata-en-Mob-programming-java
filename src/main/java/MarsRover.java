@@ -17,21 +17,27 @@ public class MarsRover {
                 number++;
             }
             if ('R' == command) {
-                if ("W".equals(orientation)) {
+                if ("N".equals(orientation)) {
+                    orientation = "E";
+                }else if ("E".equals(orientation)) {
+                    orientation = "S";
+                }else if ("S".equals(orientation)) {
+                    orientation = "W";
+                }else  {
                     orientation = "N";
                 }
             }
 
             if ('L' == command) {
-                if ("E".equals(orientation)) {
-                    orientation = "N";
+                if ("N".equals(orientation)) {
+                    orientation = "W";
                 }else if ("W".equals(orientation)) {
                     orientation = "S";
-                } else {
-
-                    orientation = "W";
+                }else if ("S".equals(orientation)) {
+                    orientation = "E";
+                }else  {
+                    orientation = "N";
                 }
-
             }
         }
 
