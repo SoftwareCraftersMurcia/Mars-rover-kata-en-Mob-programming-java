@@ -1,6 +1,8 @@
 package mars;
 
 public class MarsMap {
+    public static final int MARS_SIZE = 10;
+
     public RoverSituation move(RoverSituation to) {
         Position expectedPosition = to.getPosition();
         Position position = new Position(
@@ -11,6 +13,6 @@ public class MarsMap {
     }
 
     private int roundWorld(int x) {
-        return (x + 10) % 10;
+        return (x + MARS_SIZE) % MARS_SIZE;
     }
 }
