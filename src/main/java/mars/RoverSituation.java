@@ -15,12 +15,20 @@ public class RoverSituation {
     }
 
     public RoverSituation rotate(RotationCommand rotation) {
-        return new RoverSituation(position, rotation.rotate(orientation));
+        return withOrientation(rotation.rotate(orientation));
     }
 
     public RoverSituation moveForward(MovementCommand movementCommand) {
         Movement movement = movementCommand.move(orientation);
-        return new RoverSituation(position.move(movement), orientation);
+        return withPosition(position.move(movement));
+    }
+
+    public RoverSituation withOrientation(Orientation rotate) {
+        return new RoverSituation(position, rotate);
+    }
+
+    public RoverSituation withPosition(Position move) {
+        return new RoverSituation(move, orientation);
     }
 
     @Override
