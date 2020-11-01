@@ -25,10 +25,29 @@ public class MarsRover {
                 }
                 break;
             case "L":
-                return "1:1:W";
+                switch (heading) {
+                    case "N":
+                        return "1:1:W";
+                    case "E":
+                        return "1:1:N";
+                    case "S":
+                        return "1:1:E";
+                    case "W":
+                        return "1:1:S";
+                }
 
             case "R":
-                return "1:1:E";
+
+                switch (heading) {
+                    case "N":
+                        return "1:1:E";
+                    case "E":
+                        return "1:1:S";
+                    case "S":
+                        return "1:1:W";
+                    case "W":
+                        return "1:1:N";
+                }
         }
         return "";
     }

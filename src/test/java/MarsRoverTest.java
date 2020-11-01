@@ -60,5 +60,61 @@ class MarsRoverTest {
 		assertEquals("1:1:E", result);
 	}
 
+	@Test
+	public void facing_east_turn_left_should_face_north() {
+		MarsRover rover = new MarsRover("E");
+
+		String result = rover.execute("L");
+
+		assertEquals("1:1:N", result);
+	}
+
+	@Test
+	public void facing_east_turn_right_should_face_south() {
+		MarsRover rover = new MarsRover("E");
+
+		String result = rover.execute("R");
+
+		assertEquals("1:1:S", result);
+	}
+
+
+	@Test
+	public void facing_south_turn_left_should_face_east() {
+		MarsRover rover = new MarsRover("S");
+
+		String result = rover.execute("L");
+
+		assertEquals("1:1:E", result);
+	}
+
+	@Test
+	public void facing_south_turn_right_should_face_west() {
+		MarsRover rover = new MarsRover("S");
+
+		String result = rover.execute("R");
+
+		assertEquals("1:1:W", result);
+	}
+
+
+	@Test
+	public void facing_west_turn_left_should_face_south() {
+		MarsRover rover = new MarsRover("W");
+
+		String result = rover.execute("L");
+
+		assertEquals("1:1:S", result);
+	}
+
+	@Test
+	public void facing_west_turn_right_should_face_north() {
+		MarsRover rover = new MarsRover("W");
+
+		String result = rover.execute("R");
+
+		assertEquals("1:1:N", result);
+	}
+
 
 }
