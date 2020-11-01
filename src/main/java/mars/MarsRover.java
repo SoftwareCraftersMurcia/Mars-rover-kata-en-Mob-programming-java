@@ -27,7 +27,7 @@ public class MarsRover {
         for (int i = 0; i < commands.length(); i++) {
             MarsCommand command = this.commands.get(commands.charAt(i));
             RoverSituation nextRoverSituation = command.execute(roverSituation);
-            roverSituation = marsMap.move(roverSituation, nextRoverSituation);
+            roverSituation = marsMap.move(nextRoverSituation);
         }
 
         return roverSituation.toString();

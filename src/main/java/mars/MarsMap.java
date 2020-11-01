@@ -1,7 +1,7 @@
 package mars;
 
 public class MarsMap {
-    public RoverSituation move(RoverSituation from, RoverSituation to) {
+    public RoverSituation move(RoverSituation to) {
         Position expectedPosition = to.getPosition();
         Position position = new Position(
                 roundWorld(expectedPosition.getPositionX()),
