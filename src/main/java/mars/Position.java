@@ -21,4 +21,12 @@ public class Position {
     public String toString() {
         return positionX + ":" + positionY;
     }
+
+    public Position move(Movement movement) {
+        return new Position(
+                positionX + movement.getHorizontalMovement(),
+                positionY + movement.getVerticalMovement()
+        );
+
+    }
 }

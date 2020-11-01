@@ -20,21 +20,16 @@ public class RoverSituation {
 
     public RoverSituation moveForward(MovementCommand movementCommand) {
         Movement movement = movementCommand.move(orientation);
-        return new RoverSituation(
-                new Position(
-                        position.getPositionX() + movement.getHorizontalMovement(),
-                        position.getPositionY() + movement.getVerticalMovement()),
-                orientation
-        );
-    }
-
-    public Position getPosition() {
-        return position;
+        return new RoverSituation(position.move(movement), orientation);
     }
 
     @Override
     public String toString() {
-        return position.toString() +":" + orientation.toString();
+        return position.toString() + ":" + orientation.toString();
+    }
+
+    public Position getPosition() {
+        return position;
     }
 
     public Orientation getOrientation() {
