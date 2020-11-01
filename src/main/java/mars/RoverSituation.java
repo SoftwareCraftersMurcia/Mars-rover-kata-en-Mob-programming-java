@@ -22,18 +22,22 @@ public class RoverSituation {
         Movement movement = movementCommand.move(orientation);
         return new RoverSituation(
                 new Position(
-                        roundWorld(position.getPositionX() + movement.getHorizontalMovement()),
-                        roundWorld(position.getPositionY() + movement.getVerticalMovement())),
+                        position.getPositionX() + movement.getHorizontalMovement(),
+                        position.getPositionY() + movement.getVerticalMovement()),
                 orientation
         );
     }
 
-    private int roundWorld(int x) {
-        return (x + 10) % 10;
+    public Position getPosition() {
+        return position;
     }
 
     @Override
     public String toString() {
         return position.toString() +":" + orientation.toString();
+    }
+
+    public Orientation getOrientation() {
+        return orientation;
     }
 }
