@@ -6,6 +6,8 @@ import mars.command.rotation.RotateLeft;
 import mars.command.rotation.RotateRight;
 import mars.orientation.North;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class MarsRover {
@@ -13,8 +15,12 @@ public class MarsRover {
     private final Map<Character, MarsCommand> commands;
 
     public MarsRover() {
+        this(Collections.emptyList());
+    }
+
+    public MarsRover(List<Position> positions) {
         RoverSituation roverSituation = new RoverSituation(new Position(0, 0), new North());
-        marsMap = new MarsMap(roverSituation);
+        marsMap = new MarsMap(roverSituation, positions);
         commands = Map.of(
                 'M', new MoveForward(),
                 'R', new RotateRight(),
@@ -28,7 +34,7 @@ public class MarsRover {
             marsMap.execute(command);
         }
 
-        return marsMap.getRoverSituation().toString();
+        return marsMap.getRoverSituation();
     }
 
 }
