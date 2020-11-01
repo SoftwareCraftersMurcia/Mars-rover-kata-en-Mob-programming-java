@@ -1,47 +1,13 @@
-# Goal
-Be able to test printCurrentDate function without changing the method signature.
+# Kata Mars Rover
+## Context
+We were on a mob remote session on with [Software Crafters meetup](https://www.meetup.com/es-ES/Software-Craftsmanship-Murcia) on November 30th of 2020.
 
-1. Test the code with doubles using a library.
-2. Test the code with doubles created by you.
-# Code to test
-	public void printCurrentDate() {
-		String line = calendar.today().toString();
-		printer.printLine(line);
-	}
-# Learnings
+We test-drive and change driver every 5 minutes.
 
-How to use Mockito to generate the doubles.
 
-How to build a Mock and Stub manually.
+## Requirements
+[Requirements](https://katalyst.codurance.com/mars-rover)
 
-## Tools
-[Mockito](http://mockito.org/)
-### Example of spy
+## Solutions
+- [Luis Rovirosa Mairlot](https://github.com/SoftwareCraftersMurcia/Mars-rover-kata-en-Mob-programming-java/tree/luis-rovirosa-mairlot)
 
-    @Test
-    public void should_send_an_email() {
-        EmailSender sender = mock(EmailSender.class);
-        UserRegistration userRegistration = new UserRegistration(sender);
-
-        userRegistration.register();
-
-        verify(sender).send(any());
-    }
-	
-### Example of stub
-
-    @Test
-    public void should_success_when_password_is_valid() {
-        PasswordValidator passwordValidator = mock(PasswordValidator.class);
-        when(passwordValidator.isValid(‘validPassword’)).thenReturn(true);
-        UserRegistration userRegistration = new UserRegistration(passwordValidator);
-
-        bool success = userRegistration.register();
-
-        assertTrue(success);
-    }
-
-## Authors
-Luis Rovirosa [@luisrovirosa](https://www.twitter.com/luisrovirosa)
-
-Jordi Anguela [@jordianguela](https://www.twitter.com/jordianguela)
