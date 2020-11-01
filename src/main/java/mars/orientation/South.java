@@ -10,7 +10,7 @@ public class South implements Orientation {
 
     @Override
     public Orientation rotateLeft() {
-        return new Est();
+        return new East();
     }
 
     @Override

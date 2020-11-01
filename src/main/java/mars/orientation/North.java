@@ -5,7 +5,7 @@ import mars.Movement;
 public class North implements Orientation {
     @Override
     public Orientation rotateRight() {
-        return new Est();
+        return new East();
     }
 
     @Override

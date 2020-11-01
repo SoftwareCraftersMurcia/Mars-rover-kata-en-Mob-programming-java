@@ -2,7 +2,7 @@ package mars.orientation;
 
 import mars.Movement;
 
-public class Est implements Orientation {
+public class East implements Orientation {
     @Override
     public Orientation rotateRight() {
         return new South();
