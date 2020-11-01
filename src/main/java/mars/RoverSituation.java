@@ -39,8 +39,4 @@ public class RoverSituation {
     public Position getPosition() {
         return position;
     }
-
-    public Orientation getOrientation() {
-        return orientation;
-    }
 }

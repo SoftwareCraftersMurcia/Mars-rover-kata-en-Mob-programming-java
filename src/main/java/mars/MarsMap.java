@@ -9,7 +9,7 @@ public class MarsMap {
                 roundWorld(expectedPosition.getPositionX()),
                 roundWorld(expectedPosition.getPositionY())
         );
-        return new RoverSituation(position, to.getOrientation());
+        return to.withPosition(position);
     }
 
     private int roundWorld(int x) {
