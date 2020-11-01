@@ -15,4 +15,13 @@ public class MarsRoverWithObstaclesTest {
 
         Assertions.assertEquals("O:0:0:N", result);
     }
+
+    @Test
+    public void acceptance_test(){
+        MarsRover rover = new MarsRover(List.of(new Position(0,3)));
+
+        String result = rover.execute("MMMM");
+
+        Assertions.assertEquals("O:0:2:N", result);
+    }
 }
