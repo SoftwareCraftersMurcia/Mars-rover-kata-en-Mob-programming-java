@@ -18,9 +18,9 @@ public class MarsRover {
         this(Collections.emptyList());
     }
 
-    public MarsRover(List<Position> positions) {
-        RoverSituation roverSituation = new RoverSituation(new Position(0, 0), new North());
-        marsMap = new MarsMap(roverSituation, positions);
+    public MarsRover(List<Position> positionOfObstacles) {
+        RoverSituation initialRoverSituation = new RoverSituation(new Position(0, 0), new North());
+        marsMap = new MarsMap(initialRoverSituation, positionOfObstacles);
         commands = Map.of(
                 'M', new MoveForward(),
                 'R', new RotateRight(),

@@ -7,12 +7,12 @@ import java.util.List;
 public class MarsMap {
     public static final int MARS_SIZE = 10;
     private RoverSituation roverSituation;
-    private final List<Position> obstacles;
+    private final List<Position> positionOfObstacles;
     private boolean moved;
 
-    public MarsMap(RoverSituation roverSituation, List<Position> obstacles) {
+    public MarsMap(RoverSituation roverSituation, List<Position> positionOfObstacles) {
         this.roverSituation = roverSituation;
-        this.obstacles = obstacles;
+        this.positionOfObstacles = positionOfObstacles;
     }
 
     public void execute(MarsCommand command) {
@@ -22,7 +22,7 @@ public class MarsMap {
     }
 
     public void moveRoverTo(RoverSituation roverSituation) {
-        moved = !obstacles.contains(roverSituation.getPosition());
+        moved = !positionOfObstacles.contains(roverSituation.getPosition());
         if (moved){
             this.roverSituation = roverSituation;
         }
