@@ -117,12 +117,30 @@ class MarsRoverTest {
 	}
 
 	@Test
-	public void from_1_1_going_one_step_to_north_should_move_to_1_2_N() {
-		MarsRover rover = new MarsRover("N",1,1);
+	public void from_2_2_going_one_step_to_north_should_move_to_2_3_N() {
+		MarsRover rover = new MarsRover("N",2,2);
 
 		String result = rover.execute("M");
 
-		assertEquals("1:2:N", result);
+		assertEquals("2:3:N", result);
+	}
+
+	@Test
+	public void from_2_2_facing_north_turn_left_should_face_west() {
+		MarsRover rover = new MarsRover("N",2,2);
+
+		String result = rover.execute("L");
+
+		assertEquals("2:2:W", result);
+	}
+
+	@Test
+	public void from_1_1_facing_north_turn_right_should_face_east() {
+		MarsRover rover = new MarsRover("N",1,1);
+
+		String result = rover.execute("R");
+
+		assertEquals("1:1:E", result);
 	}
 
 

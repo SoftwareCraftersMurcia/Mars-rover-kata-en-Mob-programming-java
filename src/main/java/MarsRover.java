@@ -22,33 +22,50 @@ public class MarsRover {
         switch(commands){
             case "M":
                 executeMovement();
-                return String.format("%d:%d:%s",this.x,this.y,this.heading);
+                break;
             case "L":
-                switch (heading) {
-                    case "N":
-                        return "1:1:W";
-                    case "E":
-                        return "1:1:N";
-                    case "S":
-                        return "1:1:E";
-                    case "W":
-                        return "1:1:S";
-                }
+                executeTurnLeft();
+                break;
 
             case "R":
-
-                switch (heading) {
-                    case "N":
-                        return "1:1:E";
-                    case "E":
-                        return "1:1:S";
-                    case "S":
-                        return "1:1:W";
-                    case "W":
-                        return "1:1:N";
-                }
+                executeTurnRight();
+                break;
         }
-        return "";
+        return String.format("%d:%d:%s",this.x,this.y,this.heading);
+    }
+
+    private void executeTurnRight() {
+        switch (heading) {
+            case "N":
+                this.heading = "E";
+                break;
+            case "E":
+                this.heading = "S";
+                break;
+            case "S":
+                this.heading = "W";
+                break;
+            case "W":
+                this.heading = "N";
+                break;
+        }
+    }
+
+    private void executeTurnLeft() {
+        switch (this.heading) {
+            case "N":
+                this.heading = "W";
+                break;
+            case "E":
+                this.heading = "N";
+                break;
+            case "S":
+                this.heading = "E";
+                break;
+            case "W":
+                this.heading = "S";
+                break;
+        }
     }
 
     private void executeMovement() {
@@ -69,6 +86,8 @@ public class MarsRover {
                 break;
         }
     }
+
+
 
 
 }
