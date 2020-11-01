@@ -16,4 +16,9 @@ public class Position {
     public int getPositionY() {
         return positionY;
     }
+
+    @Override
+    public String toString() {
+        return positionX + ":" + positionY;
+    }
 }

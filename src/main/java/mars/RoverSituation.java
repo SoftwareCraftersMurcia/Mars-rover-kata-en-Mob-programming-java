@@ -15,13 +15,16 @@ public class RoverSituation {
     }
 
     public RoverSituation rotate(RotationCommand rotation) {
-        return new RoverSituation(new Position(position.getPositionX(), position.getPositionY()), rotation.rotate(orientation));
+        return new RoverSituation(position, rotation.rotate(orientation));
     }
 
     public RoverSituation moveForward(MovementCommand movementCommand) {
         Movement movement = movementCommand.move(orientation);
         return new RoverSituation(
-                new Position(roundWorld(position.getPositionX() + movement.getHorizontalMovement()), roundWorld(position.getPositionY() + movement.getVerticalMovement())), orientation
+                new Position(
+                        roundWorld(position.getPositionX() + movement.getHorizontalMovement()),
+                        roundWorld(position.getPositionY() + movement.getVerticalMovement())),
+                orientation
         );
     }
 
@@ -31,6 +34,6 @@ public class RoverSituation {
 
     @Override
     public String toString() {
-        return position.getPositionX() + ":" + position.getPositionY() + ":" + orientation.toString();
+        return position.toString() +":" + orientation.toString();
     }
 }
