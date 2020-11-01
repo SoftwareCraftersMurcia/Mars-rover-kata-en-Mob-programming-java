@@ -116,5 +116,14 @@ class MarsRoverTest {
 		assertEquals("1:1:N", result);
 	}
 
+	@Test
+	public void from_1_1_going_one_step_to_north_should_move_to_1_2_N() {
+		MarsRover rover = new MarsRover("N",1,1);
+
+		String result = rover.execute("M");
+
+		assertEquals("1:2:N", result);
+	}
+
 
 }
