@@ -22,7 +22,7 @@ public class MarsMap {
     }
 
     public void moveRoverTo(RoverSituation roverSituation) {
-        moved = !positionOfObstacles.contains(roverSituation.getPosition());
+        moved = !isThereAnObstacle(roverSituation);
         if (moved){
             this.roverSituation = roverSituation;
         }
@@ -42,5 +42,9 @@ public class MarsMap {
 
     private int roundWorld(int x) {
         return (x + MARS_SIZE) % MARS_SIZE;
+    }
+
+    private boolean isThereAnObstacle(RoverSituation roverSituation) {
+        return positionOfObstacles.contains(roverSituation.getPosition());
     }
 }
