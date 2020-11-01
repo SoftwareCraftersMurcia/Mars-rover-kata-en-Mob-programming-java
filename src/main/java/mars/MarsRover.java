@@ -13,7 +13,7 @@ public class MarsRover {
     private final Map<Character, MarsCommand> commands;
 
     public MarsRover() {
-        roverSituation = new RoverSituation(0, 0, new North());
+        roverSituation = new RoverSituation(new Position(0, 0), new North());
         commands = Map.of(
                 'M', new MoveForward(),
                 'R', new RotateRight(),

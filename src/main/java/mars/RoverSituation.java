@@ -7,25 +7,21 @@ import mars.orientation.Orientation;
 public class RoverSituation {
     private final Orientation orientation;
 
-    private final int positionX;
-    private final int positionY;
+    private final Position position;
 
-    public RoverSituation(int positionX, int positionY, Orientation orientation) {
-        this.positionX = positionX;
-        this.positionY = positionY;
+    public RoverSituation(Position position, Orientation orientation) {
+        this.position = position;
         this.orientation = orientation;
     }
 
     public RoverSituation rotate(RotationCommand rotation) {
-        return new RoverSituation(positionX, positionY, rotation.rotate(orientation));
+        return new RoverSituation(new Position(position.getPositionX(), position.getPositionY()), rotation.rotate(orientation));
     }
 
     public RoverSituation moveForward(MovementCommand movementCommand) {
         Movement movement = movementCommand.move(orientation);
         return new RoverSituation(
-                roundWorld(positionX + movement.getHorizontalMovement()),
-                roundWorld(positionY + movement.getVerticalMovement()),
-                orientation
+                new Position(roundWorld(position.getPositionX() + movement.getHorizontalMovement()), roundWorld(position.getPositionY() + movement.getVerticalMovement())), orientation
         );
     }
 
@@ -35,6 +31,6 @@ public class RoverSituation {
 
     @Override
     public String toString() {
-        return positionX + ":" + positionY + ":" + orientation.toString();
+        return position.getPositionX() + ":" + position.getPositionY() + ":" + orientation.toString();
     }
 }
