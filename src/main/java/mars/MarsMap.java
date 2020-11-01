@@ -8,7 +8,7 @@ public class MarsMap {
     public static final int MARS_SIZE = 10;
     private RoverSituation roverSituation;
     private final List<Position> obstacles;
-    private boolean blocked;
+    private boolean moved;
 
     public MarsMap(RoverSituation roverSituation, List<Position> obstacles) {
         this.roverSituation = roverSituation;
@@ -22,17 +22,15 @@ public class MarsMap {
     }
 
     public void moveRoverTo(RoverSituation roverSituation) {
-        blocked = obstacles.contains(roverSituation.getPosition());
-        if (!blocked){
+        moved = !obstacles.contains(roverSituation.getPosition());
+        if (moved){
             this.roverSituation = roverSituation;
         }
     }
 
     public String getRoverSituation() {
-        if (blocked) {
-            return "O:" + roverSituation.toString();
-        }
-        return roverSituation.toString();
+        String representation = roverSituation.toString();
+        return moved ? representation : "O:" + representation;
     }
 
     private Position positionWithSphericalWorld(Position expectedPosition) {
