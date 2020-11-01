@@ -18,11 +18,13 @@ public class MarsMap {
     public void execute(MarsCommand command) {
         RoverSituation desiredRoverSituation = command.execute(roverSituation);
         Position position = positionWithSphericalWorld(desiredRoverSituation.getPosition());
-        if (obstacles.contains(position)) {
-            blocked = true;
-        } else {
-            blocked = false;
-            roverSituation = desiredRoverSituation.withPosition(position);
+        moveRoverTo(desiredRoverSituation.withPosition(position));
+    }
+
+    public void moveRoverTo(RoverSituation roverSituation) {
+        blocked = obstacles.contains(roverSituation.getPosition());
+        if (!blocked){
+            this.roverSituation = roverSituation;
         }
     }
 
