@@ -1,47 +1,26 @@
-# Goal
-Be able to test printCurrentDate function without changing the method signature.
+# Kata Mars Rover
+## Context
+We were on a mob remote session on with [Software Crafters meetup](https://www.meetup.com/es-ES/Software-Craftsmanship-Murcia) on November 30th of 2020.
 
-1. Test the code with doubles using a library.
-2. Test the code with doubles created by you.
-# Code to test
-	public void printCurrentDate() {
-		String line = calendar.today().toString();
-		printer.printLine(line);
-	}
-# Learnings
+We test-drive and change driver every 5 minutes.
 
-How to use Mockito to generate the doubles.
+The day after I wanted to keep coding the kata and I finished with a solution that tries to provide a good Object oriented code.
 
-How to build a Mock and Stub manually.
+## Requirements
+[Requirements](https://katalyst.codurance.com/mars-rover)
 
-## Tools
-[Mockito](http://mockito.org/)
-### Example of spy
+## Solution
+### Classes explanation
+ - [MarsRover](src/main/java/mars/MarsRover.java) that define initial MarsMap, the accepted input and process the commands. 
+ - [MarsMap](src/main/java/mars/MarsMap.java) that handles the size of the world and the obstacles.
+ - [MarsCommand](src/main/java/mars/command/MarsCommand.java) that defines the format of accepted commands on the system: [MoveForward](src/main/java/mars/command/move/MoveForward.java), [RotateLeft](src/main/java/mars/command/rotation/RotateLeft.java) and [RotateRight](src/main/java/mars/command/rotation/RotateRight.java).
+ - [Orientation](src/main/java/mars/orientation/Orientation.java) to define the expected behaviour for a specific robot facing direction. There are 4 main orientations: [North](src/main/java/mars/orientation/North.java), [East](src/main/java/mars/orientation/East.java), [South](src/main/java/mars/orientation/South.java) and [West](src/main/java/mars/orientation/West.java).
+ - [RoverSituation](src/main/java/mars/RoverSituation.java): handles the [Position](src/main/java/mars/Position.java) and the [Orientation](src/main/java/mars/orientation/Orientation.java) and calculate a new situation using the rotation and move commands. 
 
-    @Test
-    public void should_send_an_email() {
-        EmailSender sender = mock(EmailSender.class);
-        UserRegistration userRegistration = new UserRegistration(sender);
+### Applied patterns
+ - [Command](https://sourcemaking.com/design_patterns/command): allowing adding other commands easily. Just creating a class and adding the input related with the command.
+ - [State](https://sourcemaking.com/design_patterns/state): encapsulating the different orientation states and the expected behaviour.
 
-        userRegistration.register();
-
-        verify(sender).send(any());
-    }
-	
-### Example of stub
-
-    @Test
-    public void should_success_when_password_is_valid() {
-        PasswordValidator passwordValidator = mock(PasswordValidator.class);
-        when(passwordValidator.isValid(‘validPassword’)).thenReturn(true);
-        UserRegistration userRegistration = new UserRegistration(passwordValidator);
-
-        bool success = userRegistration.register();
-
-        assertTrue(success);
-    }
-
-## Authors
+## Author
 Luis Rovirosa [@luisrovirosa](https://www.twitter.com/luisrovirosa)
-
-Jordi Anguela [@jordianguela](https://www.twitter.com/jordianguela)
+[Others During the Mob](https://github.com/SoftwareCraftersMurcia/Mars-rover-kata-en-Mob-programming-java/graphs/contributors) 

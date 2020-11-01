@@ -6,7 +6,6 @@ import mars.orientation.Orientation;
 
 public class RoverSituation {
     private final Orientation orientation;
-
     private final Position position;
 
     public RoverSituation(Position position, Orientation orientation) {
