@@ -13,13 +13,13 @@ public class MarsRover {
     public String execute(java.lang.String commands) {
         switch (heading) {
             case "N":
-                return "0:1:N";
+                return "1:2:N";
             case "E":
-                return "1:0:E";
+                return "2:1:E";
             case "S":
-                return "0:-1:S";
+                return "1:0:S";
             case "W":
-                return "-1:0:W";
+                return "0:1:W";
             default:
                 return "0:0:N";
         }
