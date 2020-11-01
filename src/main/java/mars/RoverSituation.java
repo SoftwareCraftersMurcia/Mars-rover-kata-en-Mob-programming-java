@@ -1,29 +1,28 @@
 package mars;
 
-import mars.command.move.MoveForward;
 import mars.command.move.MovementCommand;
 import mars.command.rotation.RotationCommand;
 import mars.orientation.Orientation;
 
-public class Position {
+public class RoverSituation {
     private final Orientation orientation;
 
     private final int positionX;
     private final int positionY;
 
-    public Position(int positionX, int positionY, Orientation orientation) {
+    public RoverSituation(int positionX, int positionY, Orientation orientation) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.orientation = orientation;
     }
 
-    public Position rotate(RotationCommand rotation) {
-        return new Position(positionX, positionY, rotation.rotate(orientation));
+    public RoverSituation rotate(RotationCommand rotation) {
+        return new RoverSituation(positionX, positionY, rotation.rotate(orientation));
     }
 
-    public Position moveForward(MovementCommand movementCommand) {
+    public RoverSituation moveForward(MovementCommand movementCommand) {
         Movement movement = movementCommand.move(orientation);
-        return new Position(
+        return new RoverSituation(
                 roundWorld(positionX + movement.getHorizontalMovement()),
                 roundWorld(positionY + movement.getVerticalMovement()),
                 orientation

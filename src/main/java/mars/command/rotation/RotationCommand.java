@@ -1,12 +1,12 @@
 package mars.command.rotation;
 
-import mars.Position;
+import mars.RoverSituation;
 import mars.command.MarsCommand;
 import mars.orientation.Orientation;
 
 public abstract class RotationCommand implements MarsCommand {
-    public Position execute(Position position) {
-        return position.rotate(this);
+    public RoverSituation execute(RoverSituation roverSituation) {
+        return roverSituation.rotate(this);
     }
 
     abstract public Orientation rotate(Orientation orientation);

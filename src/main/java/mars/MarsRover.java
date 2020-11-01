@@ -9,11 +9,11 @@ import mars.orientation.North;
 import java.util.Map;
 
 public class MarsRover {
-    private Position position;
+    private RoverSituation roverSituation;
     private final Map<Character, MarsCommand> commands;
 
     public MarsRover() {
-        position = new Position(0, 0, new North());
+        roverSituation = new RoverSituation(0, 0, new North());
         commands = Map.of(
                 'M', new MoveForward(),
                 'R', new RotateRight(),
@@ -24,10 +24,10 @@ public class MarsRover {
     public String execute(String commands) {
         for (int i = 0; i < commands.length(); i++) {
             MarsCommand command = this.commands.get(commands.charAt(i));
-            position = command.execute(position);
+            roverSituation = command.execute(roverSituation);
         }
 
-        return position.toString();
+        return roverSituation.toString();
     }
 
 }

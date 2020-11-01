@@ -1,7 +1,7 @@
 package mars.command;
 
-import mars.Position;
+import mars.RoverSituation;
 
 public interface MarsCommand {
-    Position execute(Position position);
+    RoverSituation execute(RoverSituation roverSituation);
 }
