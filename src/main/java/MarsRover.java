@@ -11,19 +11,26 @@ public class MarsRover {
     }
 
     public String execute(java.lang.String commands) {
-        switch (heading) {
-            case "N":
+        switch(commands){
+            case "M":
+                switch (heading) {
+                    case "N":
                 return "1:2:N";
-            case "E":
+                    case "E":
                 return "2:1:E";
-            case "S":
+                    case "S":
                 return "1:0:S";
-            case "W":
+                    case "W":
                 return "0:1:W";
-            default:
-                return "0:0:N";
-        }
+                }
+                break;
+            case "L":
+                return "1:1:W";
 
+            case "R":
+                return "1:1:E";
+        }
+        return "";
     }
 
 
