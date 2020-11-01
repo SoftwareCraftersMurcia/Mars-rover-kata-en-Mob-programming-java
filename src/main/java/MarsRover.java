@@ -1,7 +1,6 @@
 public class MarsRover {
 
-    private int x = 1;
-    private int y = 1;
+    private Position position = new Position(1,1);
     private String heading = "N";
 
 
@@ -14,16 +13,17 @@ public class MarsRover {
 
     public MarsRover(String heading, int x, int y) {
         this.heading = heading;
-        this.x = x;
-        this.y = y;
+        this.position = new Position(x,y);
     }
 
     public String execute(java.lang.String commands) {
         String[] commandsArray = commands.split("(?!^)");
+
         for(String command:commandsArray) {
             switch (command) {
                 case "M":
-                    executeMovement();
+                    Position position = calculateNextPosition();
+                    this.position = position;
                     break;
                 case "L":
                     executeTurnLeft();
@@ -34,7 +34,7 @@ public class MarsRover {
                     break;
             }
         }
-        return String.format("%d:%d:%s",this.x,this.y,this.heading);
+        return String.format("%d:%d:%s",this.position.x,this.position.y,this.heading);
     }
 
     private void executeTurnRight() {
@@ -71,22 +71,24 @@ public class MarsRover {
         }
     }
 
-    private void executeMovement() {
+    private Position calculateNextPosition() {
+        int x = this.position.x;
+        int y = this.position.y;
         switch (heading) {
             case "N":
-                 this.y++;
-                 break;
+                 Position moveNorth = new Position(x,y+1);
+                 return moveNorth;
             case "E":
-                this.x++;
-                break;
+                Position moveEast = new Position(x+1,y);
+                return moveEast;
             case "S":
-                this.y--;
-                break;
+                Position moveSouth = new Position (x,y-1);
+                return moveSouth;
             case "W":
-                this.x--;
-                break;
+                Position moveWest = new Position(x-1,y);
+                return moveWest;
             default:
-                break;
+                return this.position;
         }
     }
 
