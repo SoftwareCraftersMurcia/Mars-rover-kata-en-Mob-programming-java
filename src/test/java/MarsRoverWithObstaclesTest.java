@@ -17,6 +17,15 @@ public class MarsRoverWithObstaclesTest {
     }
 
     @Test
+    public void after_being_block_can_keep_moving_normally(){
+        MarsRover rover = new MarsRover(List.of(new Position(0,1)));
+
+        String result = rover.execute("MRM");
+
+        Assertions.assertEquals("1:0:E", result);
+    }
+
+    @Test
     public void acceptance_test(){
         MarsRover rover = new MarsRover(List.of(new Position(0,3)));
 
