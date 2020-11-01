@@ -19,17 +19,20 @@ public class MarsRover {
     }
 
     public String execute(java.lang.String commands) {
-        switch(commands){
-            case "M":
-                executeMovement();
-                break;
-            case "L":
-                executeTurnLeft();
-                break;
+        String[] commandsArray = commands.split("(?!^)");
+        for(String command:commandsArray) {
+            switch (command) {
+                case "M":
+                    executeMovement();
+                    break;
+                case "L":
+                    executeTurnLeft();
+                    break;
 
-            case "R":
-                executeTurnRight();
-                break;
+                case "R":
+                    executeTurnRight();
+                    break;
+            }
         }
         return String.format("%d:%d:%s",this.x,this.y,this.heading);
     }
@@ -86,8 +89,6 @@ public class MarsRover {
                 break;
         }
     }
-
-
 
 
 }
