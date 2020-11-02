@@ -3,7 +3,13 @@ import java.util.List;
 import java.util.Objects;
 
 public class MarsRover {
-    private final List<Character> rotationList = Arrays.asList(new Character[] { 'N', 'E', 'S', 'W' });
+    private final List<Orientation> rotationList =
+            Arrays.asList(new Orientation[] {
+                    Orientation.NORTH,
+                    Orientation.EAST,
+                    Orientation.SOUTH,
+                    Orientation.WEST
+            });
     private final Grid grid;
 
     public MarsRover(Grid grid){
@@ -12,12 +18,12 @@ public class MarsRover {
     }
 
     public String execute(String commands) {
-        Character orientation = 'N';
+        Orientation orientation = Orientation.NORTH;
         Position position = new Position(0, 0);
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                position = grid.advanceOne(position, getOrientation(orientation));
+                position = grid.advanceOne(position, orientation);
             }
             else if (command == 'R') {
                 orientation = rotationList.get((rotationList.indexOf(orientation) + 1) % 4);
@@ -28,21 +34,6 @@ public class MarsRover {
         }
 
         return position + ":" + orientation;
-    }
-
-    private Orientation getOrientation(char charOrientation) {
-        switch (charOrientation) {
-            case 'N':
-                return Orientation.NORTH;
-            case 'E':
-                return Orientation.EAST;
-            case 'S':
-                return Orientation.SOUTH;
-            case 'W':
-                return Orientation.WEST;
-            default:
-                return null;
-        }
     }
 
 }
