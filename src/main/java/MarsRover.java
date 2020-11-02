@@ -13,13 +13,18 @@ public class MarsRover {
 
     public String execute(String commands) {
         Character orientation = 'N';
-        int number = 0;
+        int positionY = 0;
+        int positionX = 0;
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                if (grid == null || number < grid.getHeight()) {
-                    number = (number + 1) % grid.getHeight();
+                if (orientation == 'N') {
+                    positionY = (positionY + 1) % grid.getHeight();
                 }
+                else if (orientation == 'E') {
+                    positionX = (positionX + 1) % grid.getWidth();
+                }
+
             }
             else if (command == 'R') {
                 orientation = rotationList.get((rotationList.indexOf(orientation) + 1) % 4);
@@ -29,6 +34,6 @@ public class MarsRover {
             }
         }
 
-        return "0:" + String.valueOf(number) + ":" + orientation;
+        return positionX + ":" + positionY + ":" + orientation;
     }
 }

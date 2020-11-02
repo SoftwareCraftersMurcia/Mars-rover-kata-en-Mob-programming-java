@@ -109,4 +109,13 @@ class MarsRoverTest {
 	public void should_trow_exception_if_grid_is_null() {
 		assertThrows(NullPointerException.class,  () -> new MarsRover(null));
 	}
+
+	@Test
+	public void should_reach_top_right_corner_moving_MRM_with_2x2_grid() {
+		MarsRover rover = new MarsRover(new Grid(2, 2));
+
+		String result = rover.execute("MRM");
+
+		assertEquals("1:1:E", result);
+	}
 }
