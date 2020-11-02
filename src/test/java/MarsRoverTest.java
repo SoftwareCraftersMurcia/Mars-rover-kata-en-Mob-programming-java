@@ -163,4 +163,14 @@ class MarsRoverTest {
 
 		assertEquals("0:1:S", result);
 	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"MMRMML", "RMMLMM", "MRMLMRML", "MMMMRMMRMMLL", "RMMMLMMLMR", "MMLMMMR", "RMMRMMMRR"})
+	public void should_finish_at_the_grid_center_given_a_5x5_grid(String commands) {
+		MarsRover rover = new MarsRover(new Grid(5, 5));
+
+		String result = rover.execute(commands);
+
+		assertEquals("2:2:N", result);
+	}
 }
