@@ -145,4 +145,22 @@ class MarsRoverTest {
 
 		assertEquals("0:0:S", result);
 	}
+
+	@Test
+	public void should_go_bottom_right_corner_crossing_grid_horizontally_west_direction() {
+		MarsRover rover = new MarsRover(new Grid(2, 2));
+
+		String result = rover.execute("LMMM");
+
+		assertEquals("1:0:W", result);
+	}
+
+	@Test
+	public void should_go_top_left_corner_crossing_grid_vertically_south_direction() {
+		MarsRover rover = new MarsRover(new Grid(2, 2));
+
+		String result = rover.execute("LLM");
+
+		assertEquals("0:1:S", result);
+	}
 }

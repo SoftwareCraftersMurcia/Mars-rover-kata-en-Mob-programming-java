@@ -22,13 +22,13 @@ public class MarsRover {
                     positionY = (positionY + 1) % grid.getHeight();
                 }
                 else if (orientation == 'S') {
-                    positionY = (positionY - 1) % grid.getHeight();
+                    positionY = Math.abs((positionY - 1) % grid.getHeight());
                 }
                 else if (orientation == 'E') {
                     positionX = (positionX + 1) % grid.getWidth();
                 }
                 else if (orientation == 'W') {
-                    positionX = (positionX - 1) % grid.getWidth();
+                    positionX = Math.abs((positionX - 1) % grid.getWidth());
                 }
             }
             else if (command == 'R') {
