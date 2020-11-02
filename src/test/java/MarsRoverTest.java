@@ -1,10 +1,13 @@
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
 
 class MarsRoverTest {
+
+	Grid grid = mock(Grid.class);
 
 	@Test
 	public void from_1_1_going_one_step_north_should_move_to_1_2() {
@@ -152,7 +155,15 @@ class MarsRoverTest {
 		assertEquals("1:2:W", result);
 	}
 
+	@Test
+	public void from_0_9_facing_north_M_takes_you_to_0_0() {
 
+		MarsRover rover = new MarsRover("N",0,9,grid);
 
+		rover.execute("M");
+
+		verify(grid).wrapAcrossBoundsPosition(new Position(0,10));
+
+	}
 
 }

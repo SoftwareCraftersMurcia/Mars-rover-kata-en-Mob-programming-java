@@ -2,6 +2,7 @@ public class MarsRover {
 
     private Position position = new Position(1,1);
     private String heading = "N";
+    private Grid grid = new Grid(10);
 
 
     public MarsRover() {
@@ -16,14 +17,22 @@ public class MarsRover {
         this.position = new Position(x,y);
     }
 
+    public MarsRover(String heading, int x, int y, Grid grid) {
+        this.heading = heading;
+        this.position = new Position(x,y);
+        this.grid = grid;
+    }
+
     public String execute(java.lang.String commands) {
         String[] commandsArray = commands.split("(?!^)");
 
         for(String command:commandsArray) {
             switch (command) {
                 case "M":
-                    Position position = calculateNextPosition();
-                    this.position = position;
+                    Position newPosition = calculateNextPosition();
+                    Position validatedPosition = grid.wrapAcrossBoundsPosition(newPosition);
+                    if(validatedPosition!=null)
+                        this.position = validatedPosition;
                     break;
                 case "L":
                     executeTurnLeft();
