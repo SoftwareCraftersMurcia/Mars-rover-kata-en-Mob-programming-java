@@ -118,4 +118,13 @@ class MarsRoverTest {
 
 		assertEquals("1:1:E", result);
 	}
+
+	@Test
+	public void should_return_to_initial_position_moving_MRRM_with_2x2_grid() {
+		MarsRover rover = new MarsRover(new Grid(2, 2));
+
+		String result = rover.execute("MRRM");
+
+		assertEquals("0:0:S", result);
+	}
 }

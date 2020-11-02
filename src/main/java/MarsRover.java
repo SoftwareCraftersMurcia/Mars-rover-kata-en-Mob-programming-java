@@ -21,10 +21,12 @@ public class MarsRover {
                 if (orientation == 'N') {
                     positionY = (positionY + 1) % grid.getHeight();
                 }
+                else if (orientation == 'S') {
+                    positionY = (positionY - 1) % grid.getHeight();
+                }
                 else if (orientation == 'E') {
                     positionX = (positionX + 1) % grid.getWidth();
                 }
-
             }
             else if (command == 'R') {
                 orientation = rotationList.get((rotationList.indexOf(orientation) + 1) % 4);
