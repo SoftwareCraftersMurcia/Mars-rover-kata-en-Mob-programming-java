@@ -127,4 +127,13 @@ class MarsRoverTest {
 
 		assertEquals("0:0:S", result);
 	}
+
+	@Test
+	public void should_travel_around_grid_clockwise_returning_to_same_position_moving_MRMRMRM_with_2x2_grid() {
+		MarsRover rover = new MarsRover(new Grid(2, 2));
+
+		String result = rover.execute("MRMRMRM");
+
+		assertEquals("0:0:W", result);
+	}
 }
