@@ -25,25 +25,32 @@ public class MarsRover {
 
     public String execute(java.lang.String commands) {
         String[] commandsArray = commands.split("(?!^)");
+        boolean noObstacleWasFound = true;
 
         for(String command:commandsArray) {
-            switch (command) {
-                case "M":
-                    Position newPosition = calculateNextPosition();
-                    Position validatedPosition = grid.wrapAcrossBoundsPosition(newPosition);
-                    if(validatedPosition!=null)
-                        this.position = validatedPosition;
-                    break;
-                case "L":
-                    executeTurnLeft();
-                    break;
-
-                case "R":
-                    executeTurnRight();
-                    break;
+            if ("M".equals(command)) {
+                boolean isThereAnObstacle =executeMovement();
+                noObstacleWasFound = !isThereAnObstacle;
+                if(isThereAnObstacle) break;
+            } else if ("L".equals(command)) {
+                executeTurnLeft();
+            } else if ("R".equals(command)) {
+                executeTurnRight();
             }
         }
-        return String.format("%d:%d:%s",this.position.x,this.position.y,this.heading);
+        String formattedAnswer = noObstacleWasFound?"%d:%d:%s":"O:%d:%d:%s";
+        return String.format(formattedAnswer,this.position.x,this.position.y,this.heading);
+    }
+
+    private boolean executeMovement() {
+        Position newPosition = calculateNextPosition();
+        Position wrappedAroundPosition = grid.wrapAcrossBoundsPosition(newPosition);
+        if(wrappedAroundPosition!=null) newPosition = wrappedAroundPosition;
+        boolean isThereAnObstacle =  grid.checkForObstacleAtPosition(newPosition);
+        if(!isThereAnObstacle){
+            this.position = newPosition;
+        }
+        return isThereAnObstacle;
     }
 
     private void executeTurnRight() {

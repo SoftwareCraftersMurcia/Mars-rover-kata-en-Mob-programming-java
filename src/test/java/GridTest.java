@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GridTest {
@@ -46,7 +49,7 @@ class GridTest {
 	}
 
 	@Test
-	public void correclty_checks_that_there_is_no_obstacle_at_0_0() {
+	public void correctly_checks_that_there_is_no_obstacle_at_0_0() {
 		Grid grid = new Grid(10);
 
 		Position position = grid.wrapAcrossBoundsPosition(new Position(0,0));
@@ -54,6 +57,21 @@ class GridTest {
 		boolean isThereObstacle = grid.checkForObstacleAtPosition(position);
 
 		assertEquals(false, isThereObstacle);
+
+	}
+
+	@Test
+	public void correctly_checks_that_there_is_an_obstacle_at_0_0() {
+		List<Position> obstacles = new ArrayList<>();
+		obstacles.add(new Position(0,0));
+
+		Grid grid = new Grid(10, obstacles);
+
+		Position position = grid.wrapAcrossBoundsPosition(new Position(0,0));
+
+		boolean isThereObstacle = grid.checkForObstacleAtPosition(position);
+
+		assertEquals(true, isThereObstacle);
 
 	}
 

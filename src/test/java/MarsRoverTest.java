@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -8,6 +9,11 @@ import static org.mockito.Mockito.*;
 class MarsRoverTest {
 
 	Grid grid = mock(Grid.class);
+
+	@BeforeAll
+	static public void beforeAll(){
+
+	}
 
 	@Test
 	public void from_1_1_going_one_step_north_should_move_to_1_2() {
@@ -160,10 +166,42 @@ class MarsRoverTest {
 
 		MarsRover rover = new MarsRover("N",0,9,grid);
 
-		rover.execute("M");
+		when(grid.wrapAcrossBoundsPosition(new Position(0,10))).thenReturn(new Position(0,0));
+
+		String result = rover.execute("M");
 
 		verify(grid).wrapAcrossBoundsPosition(new Position(0,10));
 
+		assertEquals("0:0:N", result);
+
 	}
+
+	@Test
+	public void from_1_1_facing_north_with_obstacle_in_1_2() {
+
+		MarsRover rover = new MarsRover("N",1,1,grid);
+
+		when(grid.wrapAcrossBoundsPosition(new Position(1,2))).thenReturn(new Position(1,2));
+		when(grid.checkForObstacleAtPosition(new Position(1,2))).thenReturn(true);
+
+		String result = rover.execute("M");
+
+		assertEquals("O:1:1:N", result);
+	}
+
+	@Test
+	public void from_1_1_facing_north_after_M_L_will_still_face_north() {
+
+		MarsRover rover = new MarsRover("N",1,1,grid);
+
+		when(grid.wrapAcrossBoundsPosition(new Position(1,2))).thenReturn(new Position(1,2));
+		when(grid.checkForObstacleAtPosition(new Position(1,2))).thenReturn(true);
+
+		String result = rover.execute("ML");
+
+		assertEquals("O:1:1:N", result);
+	}
+
+
 
 }
