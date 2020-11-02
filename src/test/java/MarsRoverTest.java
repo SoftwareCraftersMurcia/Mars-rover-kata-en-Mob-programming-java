@@ -29,24 +29,6 @@ class MarsRoverTest {
 		assertEquals("0:2:N", result);
 	}
 
-	@Test
-	public void should_face_north_when_command_is_LLLL() {
-		MarsRover rover = new MarsRover(bigEmptyGrid);
-
-		String result = rover.execute("LLLL");
-
-		assertEquals("0:0:N", result);
-	}
-
-	@Test
-	public void should_face_east_when_command_is_LLLLR() {
-		MarsRover rover = new MarsRover(bigEmptyGrid);
-
-		String result = rover.execute("LLLLR");
-
-		assertEquals("0:0:E", result);
-	}
-
 	@ParameterizedTest
 	@ValueSource(strings = {"", "LLLL", "RRRR", "LLLLRRRR", "LLLLLLLL"})
 	public void should_face_north(String commands) {
