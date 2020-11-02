@@ -202,6 +202,38 @@ class MarsRoverTest {
 		assertEquals("O:1:1:N", result);
 	}
 
+	@Test
+	public void exercise_example_1() {
 
+		MarsRover rover = new MarsRover("N",0,0,grid);
+
+		String result = rover.execute("MMRMMLM");
+
+		assertEquals("2:3:N", result);
+	}
+
+	@Test
+	public void exercise_example_2() {
+
+		MarsRover rover = new MarsRover("N",0,0,grid);
+
+		when(grid.wrapAcrossBoundsPosition(new Position(0,10))).thenReturn(new Position(0,0));
+
+		String result = rover.execute("MMMMMMMMMM");
+
+		assertEquals("0:0:N", result);
+	}
+
+	@Test
+	public void exercise_example_3() {
+
+		MarsRover rover = new MarsRover("N",0,0,grid);
+
+		when(grid.checkForObstacleAtPosition(new Position(0,3))).thenReturn(true);
+
+		String result = rover.execute("MMMM");
+
+		assertEquals("O:0:2:N", result);
+	}
 
 }

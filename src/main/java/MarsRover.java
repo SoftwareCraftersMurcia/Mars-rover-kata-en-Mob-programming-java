@@ -38,6 +38,10 @@ public class MarsRover {
                 executeTurnRight();
             }
         }
+        return formatResponse(noObstacleWasFound);
+    }
+
+    private String formatResponse(boolean noObstacleWasFound) {
         String formattedAnswer = noObstacleWasFound?"%d:%d:%s":"O:%d:%d:%s";
         return String.format(formattedAnswer,this.position.x,this.position.y,this.heading);
     }
