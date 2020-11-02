@@ -1,15 +1,7 @@
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 public class MarsRover {
-    private final List<Orientation> rotationList =
-            Arrays.asList(new Orientation[] {
-                    Orientation.NORTH,
-                    Orientation.EAST,
-                    Orientation.SOUTH,
-                    Orientation.WEST
-            });
+
     private final Grid grid;
 
     public MarsRover(Grid grid){
@@ -18,29 +10,21 @@ public class MarsRover {
     }
 
     public String execute(String commands) {
-        Orientation orientation = Orientation.NORTH;
-        Position position = new Position(0, 0);
+        RoverStatus status = new RoverStatus(Orientation.NORTH, 0, 0);
+
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                position = grid.advanceOne(position, orientation);
+                status = new RoverStatus(status.getOrientation(), grid.advanceOne(status.getPosition(), status.getOrientation()));
             }
             else if (command == 'R') {
-                orientation = rotateRight(orientation);
+                status = status.rotateRight();
             }
             else if (command == 'L') {
-                orientation = rotateLeft(orientation);
+                status = status.rotateLeft();
             }
         }
 
-        return position + ":" + orientation;
-    }
-
-    private Orientation rotateLeft(Orientation orientation) {
-        return rotationList.get((rotationList.indexOf(orientation) + 3) % 4);
-    }
-
-    private Orientation rotateRight(Orientation orientation) {
-        return rotationList.get((rotationList.indexOf(orientation) + 1) % 4);
+        return status.toString();
     }
 }
