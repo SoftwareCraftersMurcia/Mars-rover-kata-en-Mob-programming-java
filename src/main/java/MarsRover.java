@@ -12,8 +12,7 @@ public class MarsRover {
     public String execute(String commands) {
         RoverStatus status = new RoverStatus(Orientation.NORTH, 0, 0);
 
-        for (int i = 0; i < commands.length(); i++) {
-            char command = commands.charAt(i);
+        for(char command : commands.toCharArray()) {
             if (command == 'M') {
                 status = new RoverStatus(status.getOrientation(), grid.advanceOne(status.getPosition(), status.getOrientation()));
             }
