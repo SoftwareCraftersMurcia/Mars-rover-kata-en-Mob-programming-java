@@ -6,7 +6,7 @@ class Grid {
     }
 
     public Position wrapAcrossBoundsPosition(Position position){
-        Position standardisedPosition = new Position(position.x % 10,position.y % 10);
+        Position standardisedPosition = new Position((position.x + size) % size,(position.y+size) % size);
         return standardisedPosition;
     }
 
