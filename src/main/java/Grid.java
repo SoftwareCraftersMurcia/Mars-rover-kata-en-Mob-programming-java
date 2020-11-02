@@ -10,4 +10,7 @@ class Grid {
         return standardisedPosition;
     }
 
+    public boolean checkForObstacleAtPosition(Position position) {
+        return false;
+    }
 }

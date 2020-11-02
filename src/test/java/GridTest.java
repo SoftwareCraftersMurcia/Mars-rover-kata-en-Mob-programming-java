@@ -45,5 +45,17 @@ class GridTest {
 		assertEquals(0, position.y);
 	}
 
+	@Test
+	public void correclty_checks_that_there_is_no_obstacle_at_0_0() {
+		Grid grid = new Grid(10);
+
+		Position position = grid.wrapAcrossBoundsPosition(new Position(0,0));
+
+		boolean isThereObstacle = grid.checkForObstacleAtPosition(position);
+
+		assertEquals(false, isThereObstacle);
+
+	}
+
 
 }
