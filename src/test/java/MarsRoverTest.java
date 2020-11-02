@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MarsRoverTest {
 
 	@Test
-	public void going_one_step_to_north_should_move_to_0_1_N() {
+	public void should_move_to_0_1_N_when_command_is_M() {
 		MarsRover rover = new MarsRover();
 
 		String result = rover.execute("M");
@@ -16,7 +16,7 @@ class MarsRoverTest {
 	}
 
 	@Test
-	public void going_two_steps_to_north_should_move_to_0_2_N() {
+	public void should_move_to_0_2_N_when_command_is_MM() {
 		MarsRover rover = new MarsRover();
 
 		String result = rover.execute("MM");
@@ -25,7 +25,7 @@ class MarsRoverTest {
 	}
 
 	@Test
-	public void from_west_going_right_should_face_north() {
+	public void should_face_north_staring_from_west_and_command_is_R() {
 		MarsRover rover = new MarsRover("W");
 
 		String result = rover.execute("R");
@@ -33,7 +33,7 @@ class MarsRoverTest {
 		assertEquals("0:0:N", result);
 	}
 	@Test
-	public void from_west_going_left_should_face_south() {
+	public void should_face_north_starting_from_west_and_command_is_L() {
 		MarsRover rover = new MarsRover("W");
 
 		String result = rover.execute("L");
@@ -42,7 +42,7 @@ class MarsRoverTest {
 	}
 
 	@Test
-	public void from_east_going_left_should_face_east() {
+	public void should_face_north_when_command_is_LLLL() {
 		MarsRover rover = new MarsRover("N");
 
 		String result = rover.execute("LLLL");
@@ -51,21 +51,11 @@ class MarsRoverTest {
 	}
 
 	@Test
-	public void rover_direction() {
+	public void should_face_east_when_command_is_LLLLR() {
 		MarsRover rover = new MarsRover("N");
 
 		String result = rover.execute("LLLLR");
 
 		assertEquals("0:0:E", result);
 	}
-/*
-	@Test
-	public void going_two_times_left_should_face_south() {
-		MarsRover rover = new MarsRover();
-
-		String result = rover.execute("LL");
-
-		assertEquals("0:0:S", result);
-	}
-	*/
 }
