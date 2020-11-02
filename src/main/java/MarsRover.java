@@ -15,12 +15,12 @@ public class MarsRover {
 
         for(char command : commands.toCharArray()) {
             if (command == 'M') {
-                Position nextPosition = grid.advanceOne(status.getPosition(), status.getOrientation());
-                if (nextPosition == null) {
+                AdvanceResult advanceResult = grid.advanceOne(status.getPosition(), status.getOrientation());
+                if (advanceResult.isObstacleDetected()) {
                     obstacleFound = true;
                     break;
                 }
-                status = new RoverStatus(status.getOrientation(), nextPosition);
+                status = new RoverStatus(status.getOrientation(), advanceResult.getPosition());
             }
             else if (command == 'R') {
                 status = status.rotateRight();

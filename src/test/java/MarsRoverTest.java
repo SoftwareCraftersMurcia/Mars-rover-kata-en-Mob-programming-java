@@ -169,4 +169,24 @@ class MarsRoverTest {
 
 		assertEquals("O:0:2:N", result);
 	}
+
+	@Test
+	public void should_stop_when_finding_an_obstacle_with_more_obstacles() {
+		List<Position> obstacles = new ArrayList<Position>(Arrays.asList(new Position(0, 3), new Position(3, 0)));
+		MarsRover rover = new MarsRover(new Grid(5, 5, obstacles));
+
+		String result = rover.execute("RMMM");
+
+		assertEquals("O:2:0:E", result);
+	}
+
+	@Test
+	public void should_stop_when_finding_an_obstacle_and_skip_any_movement_or_rotation() {
+		List<Position> obstacles = new ArrayList<Position>(Arrays.asList(new Position(0, 3), new Position(3, 0)));
+		MarsRover rover = new MarsRover(new Grid(5, 5, obstacles));
+
+		String result = rover.execute("RMMMRMMMR");
+
+		assertEquals("O:2:0:E", result);
+	}
 }

@@ -19,7 +19,7 @@ public class Grid {
         }
     }
 
-    public Position advanceOne(Position position, Orientation orientation) {
+    public AdvanceResult advanceOne(Position position, Orientation orientation) {
         Position nextPosition = null;
         if (orientation == Orientation.NORTH) {
             nextPosition = new Position(position.getX(), (position.getY() + 1) % height);
@@ -34,7 +34,7 @@ public class Grid {
             nextPosition = new Position(Math.abs((position.getX() + (width - 1)) % width), position.getY());
         }
 
-        return isPositionInObstacle(nextPosition) ? null : nextPosition;
+        return new AdvanceResult(nextPosition, isPositionInObstacle(nextPosition));
     }
 
     private boolean isPositionInObstacle(Position position){
