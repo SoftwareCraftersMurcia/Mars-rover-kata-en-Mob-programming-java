@@ -26,14 +26,21 @@ public class MarsRover {
                 position = grid.advanceOne(position, orientation);
             }
             else if (command == 'R') {
-                orientation = rotationList.get((rotationList.indexOf(orientation) + 1) % 4);
+                orientation = rotateRight(orientation);
             }
             else if (command == 'L') {
-                orientation = rotationList.get((rotationList.indexOf(orientation) + 3) % 4);
+                orientation = rotateLeft(orientation);
             }
         }
 
         return position + ":" + orientation;
     }
 
+    private Orientation rotateLeft(Orientation orientation) {
+        return rotationList.get((rotationList.indexOf(orientation) + 3) % 4);
+    }
+
+    private Orientation rotateRight(Orientation orientation) {
+        return rotationList.get((rotationList.indexOf(orientation) + 1) % 4);
+    }
 }
