@@ -25,25 +25,8 @@ class MarsRoverTest {
 	}
 
 	@Test
-	public void should_face_north_staring_from_west_and_command_is_R() {
-		MarsRover rover = new MarsRover("W");
-
-		String result = rover.execute("R");
-
-		assertEquals("0:0:N", result);
-	}
-	@Test
-	public void should_face_north_starting_from_west_and_command_is_L() {
-		MarsRover rover = new MarsRover("W");
-
-		String result = rover.execute("L");
-
-		assertEquals("0:0:S", result);
-	}
-
-	@Test
 	public void should_face_north_when_command_is_LLLL() {
-		MarsRover rover = new MarsRover("N");
+		MarsRover rover = new MarsRover();
 
 		String result = rover.execute("LLLL");
 
@@ -52,7 +35,7 @@ class MarsRoverTest {
 
 	@Test
 	public void should_face_east_when_command_is_LLLLR() {
-		MarsRover rover = new MarsRover("N");
+		MarsRover rover = new MarsRover();
 
 		String result = rover.execute("LLLLR");
 
