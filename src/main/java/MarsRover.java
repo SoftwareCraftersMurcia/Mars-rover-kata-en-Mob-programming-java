@@ -1,5 +1,9 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class MarsRover {
-    private String orientation = "N";
+    private Character orientation = 'N';
+    private final List<Character> rotationList = Arrays.asList(new Character[] { 'N', 'E', 'S', 'W' });
 
     public String execute(String commands) {
         int number = 0;
@@ -8,32 +12,13 @@ public class MarsRover {
             if (command == 'M') {
                 number++;
             }
-            if ('R' == command) {
-                if ("N".equals(orientation)) {
-                    orientation = "E";
-                }else if ("E".equals(orientation)) {
-                    orientation = "S";
-                }else if ("S".equals(orientation)) {
-                    orientation = "W";
-                }else  {
-                    orientation = "N";
-                }
+            if (command == 'R') {
+                orientation = rotationList.get((rotationList.indexOf(orientation) + 1) % 4);
             }
-
-            if ('L' == command) {
-                if ("N".equals(orientation)) {
-                    orientation = "W";
-                }else if ("W".equals(orientation)) {
-                    orientation = "S";
-                }else if ("S".equals(orientation)) {
-                    orientation = "E";
-                }else  {
-                    orientation = "N";
-                }
+            if (command == 'L') {
+                orientation = rotationList.get((rotationList.indexOf(orientation) + 3) % 4);
             }
         }
-
-
 
         return "0:" + String.valueOf(number) + ":" + orientation;
     }
