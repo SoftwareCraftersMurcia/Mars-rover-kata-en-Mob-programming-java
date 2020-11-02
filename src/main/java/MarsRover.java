@@ -13,23 +13,11 @@ public class MarsRover {
 
     public String execute(String commands) {
         Character orientation = 'N';
-        int positionY = 0;
-        int positionX = 0;
+        Position position = new Position(0, 0);
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                if (orientation == 'N') {
-                    positionY = (positionY + 1) % grid.getHeight();
-                }
-                else if (orientation == 'S') {
-                    positionY = Math.abs((positionY - 1) % grid.getHeight());
-                }
-                else if (orientation == 'E') {
-                    positionX = (positionX + 1) % grid.getWidth();
-                }
-                else if (orientation == 'W') {
-                    positionX = Math.abs((positionX - 1) % grid.getWidth());
-                }
+                position = grid.advanceOne(position, getOrientation(orientation));
             }
             else if (command == 'R') {
                 orientation = rotationList.get((rotationList.indexOf(orientation) + 1) % 4);
@@ -39,6 +27,22 @@ public class MarsRover {
             }
         }
 
-        return positionX + ":" + positionY + ":" + orientation;
+        return position + ":" + orientation;
     }
+
+    private Orientation getOrientation(char charOrientation) {
+        switch (charOrientation) {
+            case 'N':
+                return Orientation.NORTH;
+            case 'E':
+                return Orientation.EAST;
+            case 'S':
+                return Orientation.SOUTH;
+            case 'W':
+                return Orientation.WEST;
+            default:
+                return null;
+        }
+    }
+
 }

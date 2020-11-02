@@ -7,11 +7,20 @@ public class Grid {
         this.height = height;
     }
 
-    public int getHeight() {
-        return height;
-    }
+    public Position advanceOne(Position position, Orientation orientation) {
+        if (orientation == Orientation.NORTH) {
+            return new Position(position.getX(), (position.getY() + 1) % height);
+        }
+        else if (orientation == Orientation.SOUTH) {
+            return new Position(position.getX(), Math.abs((position.getY() - 1) % height));
+        }
+        else if (orientation == Orientation.EAST) {
+            return new Position((position.getX() + 1) % width, position.getY());
+        }
+        else if (orientation == Orientation.WEST) {
+            return new Position(Math.abs((position.getX() - 1) % width), position.getY());
+        }
 
-    public int getWidth() {
-        return width;
+        return position;
     }
 }
