@@ -2,6 +2,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -154,5 +158,15 @@ class MarsRoverTest {
 		String result = rover.execute(commands);
 
 		assertEquals("2:2:N", result);
+	}
+
+	@Test
+	public void should_stop_when_finding_an_obstacle() {
+		List<Position> obstacles = new ArrayList<Position>(Arrays.asList(new Position(0, 3)));
+		MarsRover rover = new MarsRover(new Grid(4, 4), obstacles);
+
+		String result = rover.execute("MMM");
+
+		assertEquals("O:0:2:N", result);
 	}
 }
