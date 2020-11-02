@@ -6,4 +6,12 @@ public class Grid {
         this.width = width;
         this.height = height;
     }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
 }

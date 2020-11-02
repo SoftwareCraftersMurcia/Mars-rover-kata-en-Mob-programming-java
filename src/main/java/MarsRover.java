@@ -1,11 +1,13 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class MarsRover {
     private final List<Character> rotationList = Arrays.asList(new Character[] { 'N', 'E', 'S', 'W' });
     private final Grid grid;
 
     public MarsRover(Grid grid){
+        Objects.requireNonNull(grid);
         this.grid = grid;
     }
 
@@ -15,8 +17,8 @@ public class MarsRover {
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                if (grid == null) {
-                    number++;
+                if (grid == null || number < grid.getHeight()) {
+                    number = (number + 1) % grid.getHeight();
                 }
             }
             else if (command == 'R') {
