@@ -10,7 +10,7 @@ class MarsRoverTest {
 
 	@Test
 	public void should_move_to_0_1_N_when_command_is_M() {
-		MarsRover rover = new MarsRover();
+		MarsRover rover = new MarsRover(null);
 
 		String result = rover.execute("M");
 
@@ -19,7 +19,7 @@ class MarsRoverTest {
 
 	@Test
 	public void should_move_to_0_2_N_when_command_is_MM() {
-		MarsRover rover = new MarsRover();
+		MarsRover rover = new MarsRover(null);
 
 		String result = rover.execute("MM");
 
@@ -28,7 +28,7 @@ class MarsRoverTest {
 
 	@Test
 	public void should_face_north_when_command_is_LLLL() {
-		MarsRover rover = new MarsRover();
+		MarsRover rover = new MarsRover(null);
 
 		String result = rover.execute("LLLL");
 
@@ -37,7 +37,7 @@ class MarsRoverTest {
 
 	@Test
 	public void should_face_east_when_command_is_LLLLR() {
-		MarsRover rover = new MarsRover();
+		MarsRover rover = new MarsRover(null);
 
 		String result = rover.execute("LLLLR");
 
@@ -47,7 +47,7 @@ class MarsRoverTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"", "LLLL", "RRRR", "LLLLRRRR", "LLLLLLLL"})
 	public void should_face_north(String commands) {
-		MarsRover rover = new MarsRover();
+		MarsRover rover = new MarsRover(null);
 
 		String result = rover.execute(commands);
 
@@ -57,7 +57,7 @@ class MarsRoverTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"LL", "RR", "LLRRRR", "RRRRRR"})
 	public void should_face_south(String commands) {
-		MarsRover rover = new MarsRover();
+		MarsRover rover = new MarsRover(null);
 
 		String result = rover.execute(commands);
 
@@ -67,7 +67,7 @@ class MarsRoverTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"R", "RRRRR", "LLL"})
 	public void should_face_east(String commands) {
-		MarsRover rover = new MarsRover();
+		MarsRover rover = new MarsRover(null);
 
 		String result = rover.execute(commands);
 
@@ -77,10 +77,19 @@ class MarsRoverTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"L", "LLLLL", "RRR"})
 	public void should_face_west(String commands) {
-		MarsRover rover = new MarsRover();
+		MarsRover rover = new MarsRover(null);
 
 		String result = rover.execute(commands);
 
 		assertEquals("0:0:W", result);
+	}
+
+	@Test
+	public void should_keep_in_same_position_with_1x1_grid() {
+		MarsRover rover = new MarsRover(new Grid(1, 1));
+
+		String result = rover.execute("MMM");
+
+		assertEquals("0:0:N", result);
 	}
 }

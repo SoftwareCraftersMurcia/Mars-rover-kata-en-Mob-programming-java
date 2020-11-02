@@ -2,20 +2,27 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MarsRover {
-    private Character orientation = 'N';
     private final List<Character> rotationList = Arrays.asList(new Character[] { 'N', 'E', 'S', 'W' });
+    private final Grid grid;
+
+    public MarsRover(Grid grid){
+        this.grid = grid;
+    }
 
     public String execute(String commands) {
+        Character orientation = 'N';
         int number = 0;
         for (int i = 0; i < commands.length(); i++) {
             char command = commands.charAt(i);
             if (command == 'M') {
-                number++;
+                if (grid == null) {
+                    number++;
+                }
             }
-            if (command == 'R') {
+            else if (command == 'R') {
                 orientation = rotationList.get((rotationList.indexOf(orientation) + 1) % 4);
             }
-            if (command == 'L') {
+            else if (command == 'L') {
                 orientation = rotationList.get((rotationList.indexOf(orientation) + 3) % 4);
             }
         }
