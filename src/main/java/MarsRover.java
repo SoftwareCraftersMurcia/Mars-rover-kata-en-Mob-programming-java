@@ -10,11 +10,17 @@ public class MarsRover {
     }
 
     public String execute(String commands) {
+        boolean obstacleFound = false;
         RoverStatus status = new RoverStatus(Orientation.NORTH, 0, 0);
 
         for(char command : commands.toCharArray()) {
             if (command == 'M') {
-                status = new RoverStatus(status.getOrientation(), grid.advanceOne(status.getPosition(), status.getOrientation()));
+                Position nextPosition = grid.advanceOne(status.getPosition(), status.getOrientation());
+                if (nextPosition == null) {
+                    obstacleFound = true;
+                    break;
+                }
+                status = new RoverStatus(status.getOrientation(), nextPosition);
             }
             else if (command == 'R') {
                 status = status.rotateRight();
@@ -24,6 +30,6 @@ public class MarsRover {
             }
         }
 
-        return status.toString();
+        return (obstacleFound ? "O:" : "") + status.toString();
     }
 }

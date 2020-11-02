@@ -161,9 +161,9 @@ class MarsRoverTest {
 	}
 
 	@Test
-	public void should_stop_when_finding_an_obstacle() {
+	public void should_stop_when_finding_an_obstacle_in_0_3() {
 		List<Position> obstacles = new ArrayList<Position>(Arrays.asList(new Position(0, 3)));
-		MarsRover rover = new MarsRover(new Grid(4, 4), obstacles);
+		MarsRover rover = new MarsRover(new Grid(4, 4, obstacles));
 
 		String result = rover.execute("MMM");
 
